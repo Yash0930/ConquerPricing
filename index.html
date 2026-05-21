@@ -185,6 +185,80 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 /* NO RESULT */
 .no-result{text-align:center;padding:60px;color:var(--sf-text-light);display:none;}
 .no-result span{font-size:40px;display:block;margin-bottom:12px;}
+
+/* SOP STYLES */
+.sop-tabs{display:flex;gap:0;margin-bottom:24px;border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);overflow:hidden;box-shadow:var(--sf-shadow);}
+.sop-tab{flex:1;padding:14px 10px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;background:var(--sf-white);color:var(--sf-text-light);border-right:1px solid var(--sf-border);transition:all .15s;}
+.sop-tab:last-child{border-right:none;}
+.sop-tab:hover{background:var(--sf-blue-light);color:var(--sf-blue);}
+.sop-tab.sop-active{background:var(--sf-blue);color:white;}
+.sop-tab .sop-tab-icon{font-size:20px;display:block;margin-bottom:4px;}
+.sop-tab .sop-tab-badge{display:inline-block;margin-top:4px;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:700;}
+.sop-tab.sop-active .sop-tab-badge{background:rgba(255,255,255,0.2);color:white;}
+.sop-tab:not(.sop-active) .sop-tab-badge.badge-teal{background:#d0f4f2;color:var(--sf-teal);}
+.sop-tab:not(.sop-active) .sop-tab-badge.badge-blue{background:var(--sf-blue-light);color:var(--sf-blue);}
+.sop-tab:not(.sop-active) .sop-tab-badge.badge-orange{background:var(--sf-warning-bg);color:#885400;}
+
+.sop-panel{display:none;}
+.sop-panel.sop-panel-active{display:block;}
+
+/* PROCESS FLOW */
+.flow-wrap{display:flex;align-items:flex-start;gap:0;margin-bottom:24px;overflow-x:auto;padding-bottom:8px;}
+.flow-step{flex:1;min-width:160px;position:relative;}
+.flow-step:not(:last-child)::after{content:'';position:absolute;top:32px;right:-1px;width:24px;height:2px;background:var(--sf-border);z-index:1;}
+.flow-arrow{position:absolute;top:24px;right:-13px;font-size:18px;color:var(--sf-blue);z-index:2;line-height:1;}
+.flow-step:last-child .flow-arrow{display:none;}
+.flow-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:16px;margin:0 12px;box-shadow:var(--sf-shadow);min-height:110px;}
+.flow-card.fc-teal{border-top:3px solid var(--sf-teal);}
+.flow-card.fc-blue{border-top:3px solid var(--sf-blue);}
+.flow-card.fc-orange{border-top:3px solid var(--sf-warning);}
+.flow-card.fc-green{border-top:3px solid var(--sf-success);}
+.flow-card.fc-red{border-top:3px solid var(--sf-error);}
+.flow-card.fc-purple{border-top:3px solid var(--sf-purple);}
+.flow-num{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.fc-teal .flow-num{color:var(--sf-teal);}
+.fc-blue .flow-num{color:var(--sf-blue);}
+.fc-orange .flow-num{color:var(--sf-warning);}
+.fc-green .flow-num{color:var(--sf-success);}
+.fc-red .flow-num{color:var(--sf-error);}
+.fc-purple .flow-num{color:var(--sf-purple);}
+.flow-title{font-size:13px;font-weight:700;color:var(--sf-navy);margin-bottom:6px;}
+.flow-desc{font-size:12px;color:var(--sf-text-light);line-height:1.5;}
+.flow-owner{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}
+.owner-conquer{background:#e8f4fd;color:var(--sf-blue);}
+.owner-360{background:var(--sf-success-bg);color:var(--sf-success);}
+.owner-both{background:var(--sf-warning-bg);color:#885400;}
+
+/* CHECKLIST */
+.checklist-wrap{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);box-shadow:var(--sf-shadow);overflow:hidden;margin-bottom:20px;}
+.cl-header{padding:14px 20px;border-bottom:1px solid var(--sf-border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.cl-header h3{font-size:14px;font-weight:700;color:var(--sf-navy);display:flex;align-items:center;gap:8px;}
+.cl-reset{background:none;border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:5px 12px;font-family:inherit;font-size:11px;color:var(--sf-text-light);cursor:pointer;transition:all .15s;}
+.cl-reset:hover{border-color:var(--sf-blue);color:var(--sf-blue);}
+.cl-body{padding:0;}
+.cl-group{padding:14px 20px;border-bottom:1px solid var(--sf-border);}
+.cl-group:last-child{border-bottom:none;}
+.cl-group-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--sf-text-light);margin-bottom:10px;}
+.cl-item{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid #f3f2f2;}
+.cl-item:last-child{border-bottom:none;}
+.cl-item input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex-shrink:0;cursor:pointer;accent-color:var(--sf-blue);}
+.cl-item label{font-size:13px;color:var(--sf-text);cursor:pointer;line-height:1.5;flex:1;}
+.cl-item label .cl-note{display:block;font-size:11px;color:var(--sf-text-light);margin-top:2px;}
+.cl-item.required label::after{content:' *';color:var(--sf-error);font-weight:700;}
+.cl-item.checked-item label{text-decoration:line-through;color:var(--sf-text-light);}
+.cl-progress{padding:12px 20px;background:var(--sf-cloud);border-top:1px solid var(--sf-border);display:flex;align-items:center;gap:12px;}
+.cl-prog-bar-wrap{flex:1;height:6px;background:var(--sf-border);border-radius:10px;overflow:hidden;}
+.cl-prog-bar{height:100%;background:var(--sf-success);border-radius:10px;transition:width .3s ease;}
+.cl-prog-label{font-size:12px;font-weight:600;color:var(--sf-text-light);white-space:nowrap;}
+.cl-prog-done{font-size:12px;font-weight:700;color:var(--sf-success);display:none;}
+
+/* BILLING RULES */
+.billing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:20px;}
+.billing-rule{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:16px 18px;box-shadow:var(--sf-shadow);display:flex;gap:14px;align-items:flex-start;}
+.br-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.br-title{font-size:13px;font-weight:700;color:var(--sf-navy);margin-bottom:4px;}
+.br-desc{font-size:12px;color:var(--sf-text-light);line-height:1.5;}
+.br-price{font-size:16px;font-weight:700;color:var(--sf-blue);margin-top:4px;}
 </style>
 </head>
 <body>
@@ -222,6 +296,7 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
   <div class="ntab" onclick="showSection('channels',this)">&#127760; Channels</div>
   <div class="ntab" onclick="showSection('discounts',this)">&#129309; Conquer Discounts</div>
   <div class="ntab" onclick="showSection('calculator',this)">&#128176; Calculator</div>
+  <div class="ntab" onclick="showSection('sop',this)">&#128221; Process SOP</div>
 </div>
 
 <main>
@@ -607,6 +682,402 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
   </div>
 </div>
 
+<!-- ═══ PROCESS SOP ═══ -->
+<div class="section" id="section-sop">
+  <div class="pg-hdr"><h2>&#128221; Process SOP</h2><p>Step-by-step guide for Trial, New Business, and Upsell requests &mdash; for Conquer CSM and Sales teams</p></div>
+
+  <div class="sf-alert info">
+    <div class="ai">&#8505;&#65039;</div>
+    <div><h4>How to Use This SOP</h4>
+    <p>Select the scenario that applies below. Each tab shows the full process flow, who owns each step, and a pre-submission checklist. Use the checklist to confirm you have everything before sending a request to the 360 SMS team.</p></div>
+  </div>
+
+  <!-- SOP SCENARIO TABS -->
+  <div class="sop-tabs">
+    <div class="sop-tab sop-active" onclick="showSopPanel('trial',this)">
+      <span class="sop-tab-icon">&#128301;</span>Trial
+      <div class="sop-tab-badge badge-teal">Sandbox / Prod</div>
+    </div>
+    <div class="sop-tab" onclick="showSopPanel('newbiz',this)">
+      <span class="sop-tab-icon">&#127381;</span>New Business
+      <div class="sop-tab-badge badge-blue">Go-Live</div>
+    </div>
+    <div class="sop-tab" onclick="showSopPanel('upsell',this)">
+      <span class="sop-tab-icon">&#128200;</span>Upsell
+      <div class="sop-tab-badge badge-orange">Add-on</div>
+    </div>
+  </div>
+
+  <!-- ── TRIAL PANEL ── -->
+  <div class="sop-panel sop-panel-active" id="sop-trial">
+    <div class="sf-card">
+      <div class="sf-ch"><h3>&#128301; Trial Process Flow</h3><span class="sub">Conquer CSM / Sales &rarr; 360 SMS App</span></div>
+      <div class="sf-cb">
+        <div class="flow-wrap">
+          <div class="flow-step">
+            <div class="flow-card fc-teal">
+              <div class="flow-num">Step 1</div>
+              <div class="flow-title">Prospect Identified</div>
+              <div class="flow-desc">Conquer CSM or Sales identifies a prospect who needs a trial of 360 SMS App.</div>
+              <span class="flow-owner owner-conquer">Conquer</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-blue">
+              <div class="flow-num">Step 2</div>
+              <div class="flow-title">Collect Trial Info</div>
+              <div class="flow-desc">Gather: number of numbers needed, environment (Sandbox or Production), and trial expiry date.</div>
+              <span class="flow-owner owner-conquer">Conquer</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-orange">
+              <div class="flow-num">Step 3</div>
+              <div class="flow-title">Send Request to 360</div>
+              <div class="flow-desc">Submit trial request to 360 SMS team with all collected details.</div>
+              <span class="flow-owner owner-both">Conquer &rarr; 360</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-green">
+              <div class="flow-num">Step 4</div>
+              <div class="flow-title">Trial Activated</div>
+              <div class="flow-desc">360 provisions numbers and activates trial license. <strong>No charge during trial period.</strong></div>
+              <span class="flow-owner owner-360">360 SMS</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-purple">
+              <div class="flow-num">Step 5</div>
+              <div class="flow-title">Trial Expires</div>
+              <div class="flow-desc">On expiry date, access ends. If customer wants to go live, follow the New Business process.</div>
+              <span class="flow-owner owner-conquer">Conquer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sf-alert success" style="margin-top:4px;">
+          <div class="ai">&#128077;</div>
+          <div><h4>No Charges During Trial</h4>
+          <p>Trial licenses remain unlimited at <strong>$0</strong>. 360 SMS App will not charge anything for trial period usage. Charges only begin after the customer moves to production go-live via the New Business process.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trial Checklist -->
+    <div class="checklist-wrap" id="cl-trial">
+      <div class="cl-header">
+        <h3>&#9989; Trial Request Checklist</h3>
+        <button class="cl-reset" onclick="resetChecklist('trial')">&#10227; Reset</button>
+      </div>
+      <div class="cl-body">
+        <div class="cl-group">
+          <div class="cl-group-title">&#128221; Information to Provide to 360 SMS Team</div>
+          <div class="cl-item required" id="cli-t1">
+            <input type="checkbox" id="t1" onchange="updateChecklist('trial')">
+            <label for="t1">Number of phone numbers required for trial<span class="cl-note">Confirm exact quantity before submitting</span></label>
+          </div>
+          <div class="cl-item required" id="cli-t2">
+            <input type="checkbox" id="t2" onchange="updateChecklist('trial')">
+            <label for="t2">Environment confirmed: Sandbox or Production<span class="cl-note">Sandbox = test org &middot; Production = live Salesforce org</span></label>
+          </div>
+          <div class="cl-item required" id="cli-t3">
+            <input type="checkbox" id="t3" onchange="updateChecklist('trial')">
+            <label for="t3">Trial expiry date confirmed with prospect<span class="cl-note">Agree on a clear end date before activation</span></label>
+          </div>
+          <div class="cl-item required" id="cli-t4">
+            <input type="checkbox" id="t4" onchange="updateChecklist('trial')">
+            <label for="t4">Prospect Org ID (Salesforce) provided<span class="cl-note">Required to provision the app in the correct org</span></label>
+          </div>
+        </div>
+        <div class="cl-group">
+          <div class="cl-group-title">&#128101; Internal Confirmation</div>
+          <div class="cl-item" id="cli-t5">
+            <input type="checkbox" id="t5" onchange="updateChecklist('trial')">
+            <label for="t5">Prospect has been briefed that trial is time-limited<span class="cl-note">They understand access ends on the agreed expiry date</span></label>
+          </div>
+          <div class="cl-item" id="cli-t6">
+            <input type="checkbox" id="t6" onchange="updateChecklist('trial')">
+            <label for="t6">Post-trial follow-up date scheduled in CRM<span class="cl-note">Don't let the trial expire without a conversion conversation</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="cl-progress" id="cl-progress-trial">
+        <div class="cl-prog-bar-wrap"><div class="cl-prog-bar" id="cl-bar-trial" style="width:0%"></div></div>
+        <span class="cl-prog-label" id="cl-label-trial">0 / 6 complete</span>
+        <span class="cl-prog-done" id="cl-done-trial">&#9989; Ready to submit!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NEW BUSINESS PANEL ── -->
+  <div class="sop-panel" id="sop-newbiz">
+    <div class="sf-card">
+      <div class="sf-ch"><h3>&#127381; New Business Process Flow</h3><span class="sub">Conquer CSM / Sales &rarr; 360 SMS App</span></div>
+      <div class="sf-cb">
+        <div class="flow-wrap">
+          <div class="flow-step">
+            <div class="flow-card fc-teal">
+              <div class="flow-num">Step 1</div>
+              <div class="flow-title">Deal Closed</div>
+              <div class="flow-desc">Conquer sales closes the deal. Signed order / contract is maintained by Conquer.</div>
+              <span class="flow-owner owner-conquer">Conquer</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-blue">
+              <div class="flow-num">Step 2</div>
+              <div class="flow-title">Collect Go-Live Info</div>
+              <div class="flow-desc">Gather all required details: licenses, numbers, credit recharge, live date, production Org ID.</div>
+              <span class="flow-owner owner-conquer">Conquer CSM</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-orange">
+              <div class="flow-num">Step 3</div>
+              <div class="flow-title">Confirm Signed Order</div>
+              <div class="flow-desc">Confirm to 360 that a signed order / contract exists. Conquer retains the signed document.</div>
+              <span class="flow-owner owner-both">Conquer &rarr; 360</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-red">
+              <div class="flow-num">Step 4</div>
+              <div class="flow-title">360 Procures Numbers</div>
+              <div class="flow-desc">360 SMS team starts number procurement. 10DLC Fasttrack ($299) applied for new business.</div>
+              <span class="flow-owner owner-360">360 SMS</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-green">
+              <div class="flow-num">Step 5</div>
+              <div class="flow-title">App Goes Live</div>
+              <div class="flow-desc">App activated on live date. <strong>Billing starts from activation.</strong> Every license and number is charged from this point.</div>
+              <span class="flow-owner owner-360">360 SMS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sf-alert warn" style="margin-top:4px;">
+          <div class="ai">&#9888;&#65039;</div>
+          <div><h4>&#128180; Billing Starts at Activation &mdash; Important</h4>
+          <p>Once the app is active in the system, charges begin immediately for that customer account. Conquer is billed for every license ($7/user/month) and every number ($5/number/month) from the live date. Do not activate without a confirmed signed order.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Business Checklist -->
+    <div class="checklist-wrap" id="cl-newbiz">
+      <div class="cl-header">
+        <h3>&#9989; New Business Go-Live Checklist</h3>
+        <button class="cl-reset" onclick="resetChecklist('newbiz')">&#10227; Reset</button>
+      </div>
+      <div class="cl-body">
+        <div class="cl-group">
+          <div class="cl-group-title">&#128221; Customer Details</div>
+          <div class="cl-item required" id="cli-n1">
+            <input type="checkbox" id="n1" onchange="updateChecklist('newbiz')">
+            <label for="n1">Number of user licenses confirmed<span class="cl-note">Each license = $7/user/month charged to Conquer</span></label>
+          </div>
+          <div class="cl-item required" id="cli-n2">
+            <input type="checkbox" id="n2" onchange="updateChecklist('newbiz')">
+            <label for="n2">Number of phone numbers confirmed<span class="cl-note">Each number = $5/number/month charged to Conquer</span></label>
+          </div>
+          <div class="cl-item required" id="cli-n3">
+            <input type="checkbox" id="n3" onchange="updateChecklist('newbiz')">
+            <label for="n3">Credit recharge amount confirmed (minimum $1,000)<span class="cl-note">This is the messaging credit prepay — min bucket is $1,000</span></label>
+          </div>
+          <div class="cl-item required" id="cli-n4">
+            <input type="checkbox" id="n4" onchange="updateChecklist('newbiz')">
+            <label for="n4">Agreed live / go-live date confirmed<span class="cl-note">Billing starts from this date — confirm with customer</span></label>
+          </div>
+          <div class="cl-item required" id="cli-n5">
+            <input type="checkbox" id="n5" onchange="updateChecklist('newbiz')">
+            <label for="n5">Production Salesforce Org ID provided<span class="cl-note">Required to provision the app in the correct production org</span></label>
+          </div>
+        </div>
+        <div class="cl-group">
+          <div class="cl-group-title">&#128203; Commercial &amp; Legal</div>
+          <div class="cl-item required" id="cli-n6">
+            <input type="checkbox" id="n6" onchange="updateChecklist('newbiz')">
+            <label for="n6">Signed order / contract confirmed (held by Conquer)<span class="cl-note">360 SMS does not require a copy — Conquer maintains the document</span></label>
+          </div>
+          <div class="cl-item required" id="cli-n7">
+            <input type="checkbox" id="n7" onchange="updateChecklist('newbiz')">
+            <label for="n7">Customer informed that billing begins at app activation<span class="cl-note">Avoid disputes by setting clear expectations before go-live</span></label>
+          </div>
+          <div class="cl-item" id="cli-n8">
+            <input type="checkbox" id="n8" onchange="updateChecklist('newbiz')">
+            <label for="n8">10DLC Fasttrack fee ($299 one-time) communicated to customer<span class="cl-note">Mandatory for all new business registrations</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="cl-progress" id="cl-progress-newbiz">
+        <div class="cl-prog-bar-wrap"><div class="cl-prog-bar" id="cl-bar-newbiz" style="width:0%"></div></div>
+        <span class="cl-prog-label" id="cl-label-newbiz">0 / 8 complete</span>
+        <span class="cl-prog-done" id="cl-done-newbiz">&#9989; Ready to submit to 360 SMS!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── UPSELL PANEL ── -->
+  <div class="sop-panel" id="sop-upsell">
+    <div class="sf-card">
+      <div class="sf-ch"><h3>&#128200; Upsell Process Flow</h3><span class="sub">Additional licenses or numbers for existing customers</span></div>
+      <div class="sf-cb">
+        <div class="flow-wrap">
+          <div class="flow-step">
+            <div class="flow-card fc-teal">
+              <div class="flow-num">Step 1</div>
+              <div class="flow-title">Upsell Identified</div>
+              <div class="flow-desc">Customer requests additional licenses or phone numbers on top of their existing deployment.</div>
+              <span class="flow-owner owner-conquer">Conquer CSM</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-blue">
+              <div class="flow-num">Step 2</div>
+              <div class="flow-title">Notify Customer of Charges</div>
+              <div class="flow-desc">Conquer CSM informs the end customer that additional licenses/numbers carry incremental charges.</div>
+              <span class="flow-owner owner-conquer">Conquer CSM</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-orange">
+              <div class="flow-num">Step 3</div>
+              <div class="flow-title">Receive Signed Order</div>
+              <div class="flow-desc">Once customer signs off on the upsell, Conquer holds the signed order and confirms to 360.</div>
+              <span class="flow-owner owner-conquer">Conquer</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-red">
+              <div class="flow-num">Step 4</div>
+              <div class="flow-title">Submit Request to 360</div>
+              <div class="flow-desc">Send upsell details to 360 SMS team: quantity of new licenses / numbers, effective date.</div>
+              <span class="flow-owner owner-both">Conquer &rarr; 360</span>
+            </div>
+            <div class="flow-arrow">&#10140;</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-card fc-green">
+              <div class="flow-num">Step 5</div>
+              <div class="flow-title">Provisioned &amp; Billed</div>
+              <div class="flow-desc">360 provisions new numbers / licenses. Billing starts immediately from the effective date.</div>
+              <span class="flow-owner owner-360">360 SMS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sf-alert info" style="margin-top:4px;">
+          <div class="ai">&#128172;</div>
+          <div><h4>10DLC Fasttrack on Upsells</h4>
+          <p>The $299 Fasttrack fee is <strong>not required</strong> for upsells where the customer already has an active 10DLC campaign. It is only applicable if a <strong>new 10DLC campaign</strong> is being added as part of the upsell.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upsell Checklist -->
+    <div class="checklist-wrap" id="cl-upsell">
+      <div class="cl-header">
+        <h3>&#9989; Upsell Request Checklist</h3>
+        <button class="cl-reset" onclick="resetChecklist('upsell')">&#10227; Reset</button>
+      </div>
+      <div class="cl-body">
+        <div class="cl-group">
+          <div class="cl-group-title">&#128221; What to Confirm Before Submitting</div>
+          <div class="cl-item required" id="cli-u1">
+            <input type="checkbox" id="u1" onchange="updateChecklist('upsell')">
+            <label for="u1">Quantity of additional licenses confirmed<span class="cl-note">Each new license = $7/user/month from effective date</span></label>
+          </div>
+          <div class="cl-item required" id="cli-u2">
+            <input type="checkbox" id="u2" onchange="updateChecklist('upsell')">
+            <label for="u2">Quantity of additional phone numbers confirmed<span class="cl-note">Each new number = $5/number/month from effective date</span></label>
+          </div>
+          <div class="cl-item required" id="cli-u3">
+            <input type="checkbox" id="u3" onchange="updateChecklist('upsell')">
+            <label for="u3">Effective date for new licenses / numbers confirmed<span class="cl-note">Billing starts from this date, not the request date</span></label>
+          </div>
+          <div class="cl-item required" id="cli-u4">
+            <input type="checkbox" id="u4" onchange="updateChecklist('upsell')">
+            <label for="u4">End customer notified of incremental charges<span class="cl-note">CSM must inform customer before request is submitted to 360</span></label>
+          </div>
+        </div>
+        <div class="cl-group">
+          <div class="cl-group-title">&#128203; Commercial</div>
+          <div class="cl-item required" id="cli-u5">
+            <input type="checkbox" id="u5" onchange="updateChecklist('upsell')">
+            <label for="u5">Signed order / confirmation received from customer (held by Conquer)<span class="cl-note">Do not submit to 360 until signed order is in hand</span></label>
+          </div>
+          <div class="cl-item" id="cli-u6">
+            <input type="checkbox" id="u6" onchange="updateChecklist('upsell')">
+            <label for="u6">Check: does upsell include a new 10DLC campaign?<span class="cl-note">If yes, $299 Fasttrack fee applies &mdash; include in the request</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="cl-progress" id="cl-progress-upsell">
+        <div class="cl-prog-bar-wrap"><div class="cl-prog-bar" id="cl-bar-upsell" style="width:0%"></div></div>
+        <span class="cl-prog-label" id="cl-label-upsell">0 / 6 complete</span>
+        <span class="cl-prog-done" id="cl-done-upsell">&#9989; Ready to submit to 360 SMS!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BILLING RULES SUMMARY -->
+  <div class="sf-ch" style="background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg) var(--sf-radius-lg) 0 0;padding:12px 20px;margin-top:8px;">
+    <h3 style="font-size:14px;font-weight:700;color:var(--sf-navy);">&#128180; Key Billing Rules — Quick Reference</h3>
+  </div>
+  <div class="billing-grid" style="background:var(--sf-white);border:1px solid var(--sf-border);border-top:none;border-radius:0 0 var(--sf-radius-lg) var(--sf-radius-lg);padding:16px;margin-bottom:24px;box-shadow:var(--sf-shadow);">
+    <div class="billing-rule">
+      <div class="br-icon">&#129334;</div>
+      <div><div class="br-title">License Charge</div><div class="br-price">$7 / user / month</div><div class="br-desc">Charged per active user from the go-live / activation date. Every new license added via upsell is charged from its effective date.</div></div>
+    </div>
+    <div class="billing-rule">
+      <div class="br-icon">&#128222;</div>
+      <div><div class="br-title">Number Charge</div><div class="br-price">$5 / number / month</div><div class="br-desc">Charged per phone number from procurement date. Each additional number added via upsell is charged from its effective date.</div></div>
+    </div>
+    <div class="billing-rule">
+      <div class="br-icon">&#128181;</div>
+      <div><div class="br-title">Credit Recharge Minimum</div><div class="br-price">$1,000 minimum</div><div class="br-desc">Messaging credits are prepaid. The minimum recharge bucket is $1,000. Credits are consumed at $0.0169/SMS, $0.03/MMS, $0.085/RVM.</div></div>
+    </div>
+    <div class="billing-rule">
+      <div class="br-icon">&#128203;</div>
+      <div><div class="br-title">10DLC Fasttrack</div><div class="br-price">$299 one-time</div><div class="br-desc">Mandatory for every new business. For upsells, only applies if a new 10DLC campaign is being registered.</div></div>
+    </div>
+    <div class="billing-rule">
+      <div class="br-icon">&#128301;</div>
+      <div><div class="br-title">Trial Billing</div><div class="br-price">$0 during trial</div><div class="br-desc">No charges are applied during an active trial period regardless of the number of licenses or numbers provisioned.</div></div>
+    </div>
+    <div class="billing-rule">
+      <div class="br-icon">&#128196;</div>
+      <div><div class="br-title">Signed Order</div><div class="br-price">Required before go-live</div><div class="br-desc">Maintained by Conquer. 360 SMS requires confirmation that a signed order exists before activating any new business or upsell. Conquer retains the original document.</div></div>
+    </div>
+  </div>
+
+  <div class="pam-card" style="margin-top:4px;">
+    <div class="pam-av">Y</div>
+    <div class="pam-info">
+      <h4>Questions about the process? Reach out to Yash.</h4>
+      <p>Partner Account Manager &middot; 360 SMS App &amp; 360 Degree Cloud Technologies</p>
+      <div class="pam-btns">
+        <a class="pb pri" href="https://outlook.office.com/bookwithme/user/aa3615e3963840dd9dbf66931d9f53f5@360smsapp.com?anonymous&ismsaljsauthenabled&ep=bwmEmailSignature" target="_blank">&#128197; Book a Meeting</a>
+        <a class="pb out" href="mailto:yash@360smsapp.com">&#9993;&#65039; yash@360smsapp.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="no-result" id="noResult"><span>&#128269;</span>No results found. Try a different term or browse the tabs above.</div>
 </main>
 
@@ -733,6 +1204,61 @@ function runSearch(q) {
 });
 
 calcUpdate();
+
+// ── SOP PANEL SWITCHER ──
+function showSopPanel(id, el) {
+  document.querySelectorAll('.sop-panel').forEach(function(p) { p.classList.remove('sop-panel-active'); });
+  document.querySelectorAll('.sop-tab').forEach(function(t) { t.classList.remove('sop-active'); });
+  var panel = document.getElementById('sop-' + id);
+  if (panel) panel.classList.add('sop-panel-active');
+  if (el) el.classList.add('sop-active');
+}
+
+// ── CHECKLIST LOGIC ──
+var clTotals = { trial: 6, newbiz: 8, upsell: 6 };
+
+function updateChecklist(type) {
+  var total = clTotals[type];
+  var checked = 0;
+  var prefixes = { trial: 't', newbiz: 'n', upsell: 'u' };
+  var p = prefixes[type];
+  for (var i = 1; i <= total; i++) {
+    var cb = document.getElementById(p + i);
+    var item = document.getElementById('cli-' + p + i);
+    if (cb && cb.checked) {
+      checked++;
+      if (item) item.classList.add('checked-item');
+    } else {
+      if (item) item.classList.remove('checked-item');
+    }
+  }
+  var pct = Math.round((checked / total) * 100);
+  var bar = document.getElementById('cl-bar-' + type);
+  var lbl = document.getElementById('cl-label-' + type);
+  var done = document.getElementById('cl-done-' + type);
+  if (bar) bar.style.width = pct + '%';
+  if (bar) bar.style.background = pct === 100 ? 'var(--sf-success)' : pct >= 60 ? 'var(--sf-warning)' : 'var(--sf-blue)';
+  if (lbl) { lbl.textContent = checked + ' / ' + total + ' complete'; lbl.style.display = pct === 100 ? 'none' : 'inline'; }
+  if (done) done.style.display = pct === 100 ? 'inline' : 'none';
+}
+
+function resetChecklist(type) {
+  var prefixes = { trial: 't', newbiz: 'n', upsell: 'u' };
+  var p = prefixes[type];
+  var total = clTotals[type];
+  for (var i = 1; i <= total; i++) {
+    var cb = document.getElementById(p + i);
+    var item = document.getElementById('cli-' + p + i);
+    if (cb) cb.checked = false;
+    if (item) item.classList.remove('checked-item');
+  }
+  var bar = document.getElementById('cl-bar-' + type);
+  var lbl = document.getElementById('cl-label-' + type);
+  var done = document.getElementById('cl-done-' + type);
+  if (bar) { bar.style.width = '0%'; bar.style.background = 'var(--sf-blue)'; }
+  if (lbl) { lbl.textContent = '0 / ' + total + ' complete'; lbl.style.display = 'inline'; }
+  if (done) done.style.display = 'none';
+}
 </script>
 </body>
 </html>
