@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>360 SMS App × Conquer — Partner Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sf-blue:#0176d3; --sf-blue-dark:#014486; --sf-blue-light:#e8f4fd;
+  --sf-blue-hover:#0a52cc; --sf-navy:#032d60; --sf-cloud:#f3f2f2;
+  --sf-border:#dddbda; --sf-text:#181818; --sf-text-light:#706e6b;
+  --sf-success:#2e844a; --sf-success-bg:#eef7ee;
+  --sf-warning:#fe9339; --sf-warning-bg:#fff3e0;
+  --sf-error:#c23934; --sf-error-bg:#fef0ef;
+  --sf-white:#ffffff; --sf-teal:#06a59a; --sf-purple:#7526e3;
+  --sf-shadow:0 2px 8px rgba(0,0,0,0.10);
+  --sf-shadow-lg:0 4px 20px rgba(0,0,0,0.14);
+  --sf-radius:4px; --sf-radius-lg:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--sf-cloud);color:var(--sf-text);font-size:14px;line-height:1.5;}
+
+/* HEADER */
+header{background:var(--sf-navy);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px;box-shadow:0 2px 8px rgba(0,0,0,0.3);position:sticky;top:0;z-index:200;}
+.hdr-left{display:flex;align-items:center;gap:16px;}
+.logo-pill{background:white;border-radius:var(--sf-radius-lg);padding:5px 10px;height:46px;display:flex;align-items:center;}
+.logo-pill img{height:34px;object-fit:contain;}
+.logo-sep{width:1px;height:30px;background:rgba(255,255,255,0.2);}
+.hdr-title{color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;margin-left:4px;}
+.hdr-right{display:flex;align-items:center;gap:12px;}
+.conf-pill{background:rgba(1,118,211,0.2);border:1px solid rgba(1,118,211,0.4);color:#7dc4f8;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.book-btn{background:var(--sf-blue);color:white;border:none;cursor:pointer;padding:8px 16px;border-radius:var(--sf-radius-lg);font-family:inherit;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;text-decoration:none;transition:background .15s;}
+.book-btn:hover{background:var(--sf-blue-hover);}
+
+/* NAV */
+.nav-bar{background:var(--sf-white);border-bottom:1px solid var(--sf-border);padding:0 40px;display:flex;align-items:center;gap:2px;overflow-x:auto;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.srch-wrap{position:relative;margin-right:12px;flex-shrink:0;}
+.srch-wrap input{padding:8px 12px 8px 34px;border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);font-family:inherit;font-size:13px;width:220px;outline:none;background:var(--sf-cloud);transition:border-color .15s,box-shadow .15s;}
+.srch-wrap input:focus{border-color:var(--sf-blue);background:white;box-shadow:0 0 0 3px rgba(1,118,211,0.15);}
+.srch-wrap .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--sf-text-light);}
+.ntab{padding:14px 15px;font-size:12px;font-weight:500;cursor:pointer;color:var(--sf-text-light);border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;}
+.ntab:hover{color:var(--sf-blue);border-bottom-color:rgba(1,118,211,0.3);}
+.ntab.active{color:var(--sf-blue);border-bottom-color:var(--sf-blue);font-weight:600;}
+
+/* MAIN */
+main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
+.section{display:none;}
+.section.active{display:block;animation:sfFade .2s ease;}
+@keyframes sfFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.pg-hdr{margin-bottom:20px;}
+.pg-hdr h2{font-size:22px;font-weight:700;color:var(--sf-navy);}
+.pg-hdr p{font-size:13px;color:var(--sf-text-light);margin-top:3px;}
+
+/* TILES */
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:20px;}
+.tile{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:18px;position:relative;box-shadow:var(--sf-shadow);transition:box-shadow .15s,transform .15s;}
+.tile:hover{box-shadow:var(--sf-shadow-lg);transform:translateY(-1px);}
+.tile::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sf-blue);border-radius:var(--sf-radius-lg) var(--sf-radius-lg) 0 0;}
+.tile.g::before{background:var(--sf-success);}
+.tile.o::before{background:var(--sf-warning);}
+.tile.t::before{background:var(--sf-teal);}
+.tile.r::before{background:var(--sf-error);}
+.t-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--sf-text-light);margin-bottom:8px;}
+.t-val{font-size:26px;font-weight:700;color:var(--sf-blue);line-height:1;margin-bottom:5px;}
+.tile.g .t-val{color:var(--sf-success);}
+.tile.o .t-val{color:var(--sf-warning);}
+.tile.t .t-val{color:var(--sf-teal);}
+.tile.r .t-val{color:var(--sf-error);}
+.t-sub{font-size:12px;color:var(--sf-text-light);}
+.badge{display:inline-block;margin-top:10px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+.b-b{background:var(--sf-blue-light);color:var(--sf-blue);}
+.b-g{background:var(--sf-success-bg);color:var(--sf-success);}
+.b-o{background:var(--sf-warning-bg);color:#885400;}
+.b-r{background:var(--sf-error-bg);color:var(--sf-error);}
+
+/* CARD */
+.sf-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);box-shadow:var(--sf-shadow);overflow:hidden;margin-bottom:20px;}
+.sf-ch{padding:12px 20px;border-bottom:1px solid var(--sf-border);display:flex;align-items:center;justify-content:space-between;}
+.sf-ch h3{font-size:14px;font-weight:700;color:var(--sf-navy);display:flex;align-items:center;gap:7px;}
+.sf-ch .sub{font-size:12px;color:var(--sf-text-light);}
+.sf-cb{padding:20px;}
+
+/* TABLE */
+.sf-tbl{width:100%;border-collapse:collapse;}
+.sf-tbl thead tr{background:var(--sf-cloud);}
+.sf-tbl th{padding:9px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--sf-text-light);text-align:left;border-bottom:2px solid var(--sf-border);white-space:nowrap;}
+.sf-tbl td{padding:11px 16px;font-size:13px;color:var(--sf-text);border-bottom:1px solid var(--sf-border);}
+.sf-tbl tr:last-child td{border-bottom:none;}
+.sf-tbl tr:hover td{background:var(--sf-blue-light);}
+.mono{font-family:'SFMono-Regular',Consolas,monospace;font-weight:600;color:var(--sf-blue);}
+.free{font-weight:700;color:var(--sf-success);}
+.danger{color:var(--sf-error);font-weight:700;}
+.hl-row td{background:#fffbeb !important;}
+.dc{background:var(--sf-success);color:white;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;}
+
+/* ALERT */
+.sf-alert{border-radius:var(--sf-radius-lg);padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-bottom:20px;border-left:4px solid;}
+.sf-alert.info{background:var(--sf-blue-light);border-color:var(--sf-blue);}
+.sf-alert.warn{background:var(--sf-warning-bg);border-color:var(--sf-warning);}
+.sf-alert.success{background:var(--sf-success-bg);border-color:var(--sf-success);}
+.sf-alert .ai{font-size:18px;flex-shrink:0;margin-top:2px;}
+.sf-alert h4{font-size:13px;font-weight:700;margin-bottom:3px;}
+.sf-alert.info h4{color:var(--sf-navy);}
+.sf-alert.warn h4{color:#663300;}
+.sf-alert.success h4{color:var(--sf-success);}
+.sf-alert p{font-size:13px;line-height:1.6;}
+.sf-alert.info p{color:#032d60;}
+.sf-alert.warn p{color:#663300;}
+.sf-alert a{color:var(--sf-blue);font-weight:600;text-decoration:none;}
+.sf-alert a:hover{text-decoration:underline;}
+
+/* PAM */
+.pam-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:22px;display:flex;align-items:center;gap:18px;box-shadow:var(--sf-shadow);margin-bottom:20px;}
+.pam-av{width:60px;height:60px;background:linear-gradient(135deg,var(--sf-blue),var(--sf-teal));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:white;flex-shrink:0;}
+.pam-info h4{font-size:17px;font-weight:700;color:var(--sf-navy);}
+.pam-info p{font-size:12px;color:var(--sf-text-light);margin-bottom:10px;}
+.pam-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.pb{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--sf-radius-lg);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;border:none;transition:all .15s;}
+.pb.pri{background:var(--sf-blue);color:white;}
+.pb.pri:hover{background:var(--sf-blue-hover);}
+.pb.out{background:white;color:var(--sf-blue);border:1px solid var(--sf-blue);}
+.pb.out:hover{background:var(--sf-blue-light);}
+
+/* PARTNER BANNER */
+.p-banner{background:linear-gradient(135deg,var(--sf-navy) 0%,var(--sf-blue-dark) 100%);border-radius:var(--sf-radius-lg);padding:22px 26px;color:white;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-bottom:20px;box-shadow:var(--sf-shadow-lg);}
+.p-banner h3{font-size:17px;font-weight:700;margin-bottom:5px;}
+.p-banner p{font-size:12px;color:rgba(255,255,255,0.7);max-width:460px;}
+.bstats{display:flex;gap:24px;flex-wrap:wrap;}
+.bs{text-align:center;}
+.bs .bv{font-size:28px;font-weight:800;color:#7dc4f8;}
+.bs .bl{font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:.5px;}
+
+/* CHANNEL GRID */
+.channel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:20px;}
+.ch-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--sf-shadow);transition:box-shadow .15s,transform .15s;}
+.ch-card:hover{box-shadow:var(--sf-shadow-lg);transform:translateY(-1px);}
+.ch-icon{font-size:28px;flex-shrink:0;}
+.ch-info .ch-name{font-size:14px;font-weight:700;color:var(--sf-navy);}
+.ch-info .ch-price{font-size:18px;font-weight:700;color:var(--sf-blue);margin-top:2px;}
+.ch-info .ch-sub{font-size:11px;color:var(--sf-text-light);margin-top:2px;}
+
+/* CALCULATOR */
+.calc-box{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);overflow:hidden;box-shadow:var(--sf-shadow);margin-bottom:20px;}
+.calc-form{padding:22px;border-bottom:1px solid var(--sf-border);}
+.calc-form h3{font-size:15px;font-weight:700;color:var(--sf-navy);margin-bottom:3px;}
+.calc-form p{font-size:12px;color:var(--sf-text-light);margin-bottom:18px;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:14px;}
+.cg-wide{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px;}
+.cf label{display:block;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--sf-text-light);margin-bottom:5px;}
+.cf input,.cf select{width:100%;padding:9px 11px;border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);font-family:inherit;font-size:14px;color:var(--sf-text);outline:none;background:var(--sf-cloud);transition:border-color .15s,box-shadow .15s;}
+.cf input:focus,.cf select:focus{border-color:var(--sf-blue);background:white;box-shadow:0 0 0 3px rgba(1,118,211,0.15);}
+.cf input[readonly]{background:#f0f7ff;color:var(--sf-blue);font-weight:600;border-color:#b8d6f5;cursor:not-allowed;}
+.cf .field-note{font-size:11px;color:var(--sf-text-light);margin-top:4px;}
+.section-divider{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sf-text-light);margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--sf-border);}
+
+/* Multi-select channels */
+.channel-select{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:4px;}
+.ch-cb{display:flex;align-items:center;gap:8px;background:var(--sf-cloud);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:8px 12px;cursor:pointer;transition:all .15s;}
+.ch-cb:hover{border-color:var(--sf-blue);background:var(--sf-blue-light);}
+.ch-cb input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--sf-blue);}
+.ch-cb span{font-size:13px;font-weight:500;color:var(--sf-text);}
+.ch-cb.checked{border-color:var(--sf-blue);background:var(--sf-blue-light);}
+
+/* CALC RESULT */
+.calc-result{background:var(--sf-navy);padding:26px;color:white;}
+.cr-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.45);margin-bottom:18px;}
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:16px;}
+.ri label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,0.45);}
+.ri .rv{font-size:20px;font-weight:700;color:#7dc4f8;margin-top:3px;}
+.ri .rv.grand{color:var(--sf-warning);font-size:30px;}
+.ri .rv.channel-total{color:#b88af8;}
+.rdiv{border:none;border-top:1px solid rgba(255,255,255,0.1);margin:18px 0;}
+.cr-box{margin-top:18px;background:rgba(1,118,211,0.18);border:1px solid rgba(1,118,211,0.35);border-radius:var(--sf-radius-lg);padding:14px 18px;display:flex;align-items:center;gap:14px;}
+.cr-box .ci{font-size:26px;}
+.cr-box .ct label{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,0.45);}
+.cr-box .ct .cv{font-size:20px;font-weight:700;color:var(--sf-teal);margin-top:2px;}
+.cr-box .ct .cs{font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px;}
+.note-box{margin-top:14px;background:rgba(254,147,57,0.15);border:1px solid rgba(254,147,57,0.4);border-radius:var(--sf-radius-lg);padding:12px 16px;font-size:12px;color:rgba(255,255,255,0.8);line-height:1.6;}
+.note-box strong{color:var(--sf-warning);}
+
+/* RESPONSIVE */
+@media(max-width:768px){header,.nav-bar,main{padding-left:16px;padding-right:16px;} .hdr-title,.conf-pill{display:none;} }
+
+/* NO RESULT */
+.no-result{text-align:center;padding:60px;color:var(--sf-text-light);display:none;}
+.no-result span{font-size:40px;display:block;margin-bottom:12px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr-left">
+    <div class="logo-pill">
+      <img src="data:image/png;base64,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" alt="360 SMS App">
+    </div>
+    <div class="logo-sep"></div>
+    <div class="logo-pill">
+      <img src="data:image/png;base64,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HZpt40I34e8Wa0ULro2JmfEa2NoZO4DqAPw3+bCM4DSrc7VdnGltptiprLq2lnqaOmqRVRthndERIGuaDlvXk93L1Xb2PTNms+j6XSVLSB9npqMUTKec+IHQhvDwuz9XLkc9UBSz/D+rXXjbjrC4ysbE+utM8z2sJw0vqYnED2ysXdW1VbNhO2XV2itoU32YKgspTWSMPhskic4sccZIZIyTiDun055HKtbsr2JbP9md9qr1pK31dLV1VMaaQy1b5WmMua7GHHzaOazdqWyLZ/tLEL9W2CKqqoG8MNZE90M7G/u8bCC5vM/K7IGScZQFet93bLofUOziPRGlLxS3+4V1ZFLM+if4kUEbDxD5xyLi7hAaD0znHIHrNuug71prcR0baKqmkbUWi5Q19xY/6qcT/EfKfVr6ljF3W0jdQrLBerBqTYpW/DXK31AkliudSHDjaeJkrSWkdRwlpGCMeubO2aGuvujIqTWlloY6uqpjDcqEOE9O8kcLwM/Ux3XB54OCgK/bNduuzS1br9BS1mo6aO622xGhkthOKmSZkZYGtb3DiBh3QA8yMHGo7g1prafZPtHvUsLmUlaxsEDyMB7ooZS/HmB4rf7qV5907YrLdDW/YNdHGTk0rLjKIuvvxAezlL1s03ZLVpZumLVboLfaGU7qdlNTN4GsY4Hixjuckk9SSSeaA85d2vZzsz15S3yTaDrY6akonwCjaK6np/GDw/jP4rTnHC3p5qye8BbNM2TchrLJpC9xXuzUDqWngrGTxzeIRWM4suj+UkOJBx5LZf8ApK2Lf9luX/6Uv/tbqzY1oRuyl+zEUNX923y+KYPin8fF4ol+vOfqGUB5/wB+0xrCzbAdKavg1LeanSt6mqaartjKh7IKSVk8ga3h4i0iQMc7PDycDnORm/e7XY9D2TZBZjoDxH2ivj+MdPM4OnmlcAHmUgAcYLeAgAAcOB0WbT7JdDw7KDsw+zJJNNEOxBJO5zwXSmXiD88QIecg9ln7L9n2ndm9gksWl21sVvfOZxDUVTpgx5AB4eL6QcA4HLPPqSgNsREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH//2Q==" alt="Conquer">
+    </div>
+    <span class="hdr-title">Partner Pricing Portal</span>
+  </div>
+  <div class="hdr-right">
+    <span class="conf-pill">Confidential</span>
+    <a class="book-btn" href="https://outlook.office.com/bookwithme/user/aa3615e3963840dd9dbf66931d9f53f5@360smsapp.com?anonymous&ismsaljsauthenabled&ep=bwmEmailSignature" target="_blank">&#128197; Book a Meeting</a>
+  </div>
+</header>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <div class="srch-wrap">
+    <span class="si">&#128269;</span>
+    <input type="text" id="globalSearch" placeholder="Search pricing&#x2026;" oninput="runSearch(this.value)">
+  </div>
+  <div class="ntab active" onclick="showSection('overview',this)">&#127968; Overview</div>
+  <div class="ntab" onclick="showSection('longcodes',this)">&#128222; Long Codes</div>
+  <div class="ntab" onclick="showSection('shortcodes',this)">&#128223; Short Codes</div>
+  <div class="ntab" onclick="showSection('licenses',this)">&#129334; Licenses</div>
+  <div class="ntab" onclick="showSection('addons',this)">&#10133; Add-ons</div>
+  <div class="ntab" onclick="showSection('a2p',this)">&#128203; A2P / 10DLC</div>
+  <div class="ntab" onclick="showSection('channels',this)">&#127760; Channels</div>
+  <div class="ntab" onclick="showSection('discounts',this)">&#129309; Conquer Discounts</div>
+  <div class="ntab" onclick="showSection('calculator',this)">&#128176; Calculator</div>
+</div>
+
+<main>
+
+<!-- ═══ OVERVIEW ═══ -->
+<div class="section active" id="section-overview">
+  <div class="pg-hdr"><h2>Welcome, Conquer Team &#128075;</h2><p>Special partner pricing for Conquer. All prices in USD &middot; Confidential &mdash; for internal use only.</p></div>
+  <div class="sf-alert info">
+    <div class="ai">&#128172;</div>
+    <div><h4>High-Value Customer or Competitive Pricing?</h4>
+    <p>For enterprise deals, volume commitments, or competitive displacement &mdash; connect with your Partner Account Manager <strong>Yash</strong> for a custom quote.</p></div>
+  </div>
+  <div class="tile-grid">
+    <div class="tile"><div class="t-lbl">SMS App License</div><div class="t-val">$7</div><div class="t-sub">per user / month &middot; annual</div><div class="badge b-b">Full Access</div></div>
+    <div class="tile g"><div class="t-lbl">Phone Number (Long Code)</div><div class="t-val">$5</div><div class="t-sub">per number / month</div><div class="badge b-g">Normal Long Code</div></div>
+    <div class="tile"><div class="t-lbl">Phone Number (Toll-Free)</div><div class="t-val">$7</div><div class="t-sub">per number / month</div><div class="badge b-b">Toll-Free</div></div>
+    <div class="tile t"><div class="t-lbl">Outbound SMS</div><div class="t-val">$0.0169</div><div class="t-sub">per message &middot; all number types</div><div class="badge b-g">Inbound Free</div></div>
+    <div class="tile o"><div class="t-lbl">Outbound MMS</div><div class="t-val">$0.03</div><div class="t-sub">per message &middot; Inbound $0.015</div><div class="badge b-o">Long Code</div></div>
+    <div class="tile"><div class="t-lbl">Ringless Voicemail</div><div class="t-val">$0.085</div><div class="t-sub">per drop &middot; no setup fee</div><div class="badge b-b">No Setup Cost</div></div>
+    <div class="tile r"><div class="t-lbl">10DLC Fasttrack</div><div class="t-val">$299</div><div class="t-sub">one-time &middot; new business only</div><div class="badge b-r">Mandatory New Biz</div></div>
+    <div class="tile g"><div class="t-lbl">Inbound SMS</div><div class="t-val">Free</div><div class="t-sub">always free on all number types</div><div class="badge b-g">Always Included</div></div>
+  </div>
+  <div class="pam-card">
+    <div class="pam-av">Y</div>
+    <div class="pam-info">
+      <h4>Yash &mdash; Partner Account Manager</h4>
+      <p>360 SMS App &amp; 360 Degree Cloud Technologies &middot; Custom pricing, competitive deals, partner support</p>
+      <div class="pam-btns">
+        <a class="pb pri" href="https://outlook.office.com/bookwithme/user/aa3615e3963840dd9dbf66931d9f53f5@360smsapp.com?anonymous&ismsaljsauthenabled&ep=bwmEmailSignature" target="_blank">&#128197; Book a Meeting</a>
+        <a class="pb out" href="mailto:yash@360smsapp.com">&#9993;&#65039; yash@360smsapp.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LONG CODES ═══ -->
+<div class="section" id="section-longcodes">
+  <div class="pg-hdr"><h2>US Long Codes</h2><p>Toll-Free and Normal Long Code (10DLC) &mdash; number fees, per-message rates, and carrier surcharges</p></div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128222; Long Code Pricing</h3><span class="sub">All rates in USD</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Fee Type</th><th>Normal Long Code</th><th>Toll-Free Number</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Monthly Number Fee</td><td class="mono">$5 / month</td><td class="mono">$7 / month</td><td>Per number</td></tr>
+        <tr><td>Outbound SMS</td><td class="mono">$0.0169</td><td class="mono">$0.0169</td><td>Per message</td></tr>
+        <tr><td>Inbound SMS</td><td class="free">Free</td><td class="free">Free</td><td>Always free</td></tr>
+        <tr><td>Outbound MMS</td><td class="mono">$0.030</td><td>&mdash;</td><td>Per message</td></tr>
+        <tr><td>Inbound MMS</td><td class="mono">$0.015</td><td>&mdash;</td><td>Per message</td></tr>
+        <tr><td>Ringless Voicemail (RVM)</td><td class="mono">$0.085</td><td class="mono">$0.085</td><td>No setup charges</td></tr>
+        <tr><td>3rd Party Vetting</td><td class="mono">$40 one-time</td><td>&mdash;</td><td>For special campaign types</td></tr>
+        <tr><td>Number Pool Campaign</td><td class="mono">$2,000 setup + $30/mo</td><td>&mdash;</td><td>50+ sender numbers on one campaign</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sf-alert warn">
+    <div class="ai">&#9888;&#65039;</div>
+    <div><h4>Carrier Surcharges &mdash; Passthrough (Not Controlled by 360 SMS App)</h4>
+    <p>Carrier-controlled fees passed through at exact cost. Key rates: Bluegrass Cellular $0.0025, C-Spire $0.0025, US Cellular $0.005, Verizon $0.00255, LLEIDA $0.04. MMS: Boost CC / Sprint MVNO / Sprint PCS $0.00015, US Cellular $0.01, Verizon $0.0052.</p></div>
+  </div>
+</div>
+
+<!-- ═══ SHORT CODES ═══ -->
+<div class="section" id="section-shortcodes">
+  <div class="pg-hdr"><h2>US Short Codes</h2><p>Random and Vanity shortcode setup, monthly, and per-message rates</p></div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128223; Short Code Setup &amp; Monthly Fees</h3><span class="sub">All rates in USD</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Fee Type</th><th>Random (Normal)</th><th>Random (FTEU)</th><th>Vanity (Normal)</th><th>Vanity (FTEU)</th></tr></thead>
+      <tbody>
+        <tr><td>Setup Fee</td><td class="mono">$2,500</td><td class="mono">$5,000</td><td class="mono">$2,500</td><td class="mono">$5,000</td></tr>
+        <tr><td>Monthly Fee</td><td class="mono">$1,000/mo</td><td class="mono">$1,000/mo</td><td class="mono">$1,500/mo</td><td class="mono">$1,500/mo</td></tr>
+        <tr><td>Outbound SMS</td><td class="mono">$0.0169</td><td class="mono">$0.0169</td><td class="mono">$0.0169</td><td class="mono">$0.0169</td></tr>
+        <tr><td>Inbound SMS</td><td class="free">Free</td><td class="free">Free</td><td class="free">Free</td><td class="free">Free</td></tr>
+        <tr><td>Outbound MMS</td><td class="mono">$0.03</td><td class="mono">$0.03</td><td class="mono">$0.03</td><td class="mono">$0.03</td></tr>
+        <tr><td>Inbound MMS</td><td class="mono">$0.015</td><td class="mono">$0.015</td><td class="mono">$0.015</td><td class="mono">$0.015</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128225; Shortcode Carrier Surcharges (Passthrough)</h3><span class="sub">Carrier-controlled</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Carrier</th><th>Messages Received</th><th>Messages Sent</th></tr></thead>
+      <tbody>
+        <tr><td>AT&amp;T (includes Cricket)</td><td>&mdash;</td><td class="mono">$0.0025</td></tr>
+        <tr><td>Sprint</td><td class="mono">$0.0050</td><td class="mono">$0.0050</td></tr>
+        <tr><td>T-Mobile (includes MetroPCS)</td><td class="mono">$0.0025</td><td class="mono">$0.0025</td></tr>
+        <tr><td>US Cellular</td><td>&mdash;</td><td class="mono">$0.0035</td></tr>
+        <tr><td>Verizon</td><td>&mdash;</td><td class="mono">$0.0025</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ LICENSES ═══ -->
+<div class="section" id="section-licenses">
+  <div class="pg-hdr"><h2>License Pricing</h2><p>Single-tier SMS App license &mdash; billed annually</p></div>
+  <div class="tile-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+    <div class="tile"><div class="t-lbl">SMS App License</div><div class="t-val">$7</div><div class="t-sub">per user / month &middot; billed annually</div><div class="badge b-b">Full Access</div></div>
+    <div class="tile g"><div class="t-lbl">Annual Cost Per User</div><div class="t-val">$84</div><div class="t-sub">per user / year</div><div class="badge b-g">Annual</div></div>
+  </div>
+  <div class="sf-alert info">
+    <div class="ai">&#8505;&#65039;</div>
+    <div><h4>Single License Tier</h4>
+    <p>One SMS App license at <strong>$7/user/month</strong> billed annually ($84/user/year). Covers full send, receive, automation, and reporting within Salesforce.</p></div>
+  </div>
+</div>
+
+<!-- ═══ ADD-ONS ═══ -->
+<div class="section" id="section-addons">
+  <div class="pg-hdr"><h2>Add-On Products</h2><p>Optional modules to extend your 360 SMS App deployment</p></div>
+  <div class="tile-grid">
+    <div class="tile o"><div class="t-lbl">Mass Email Module</div><div class="t-val">$3,999</div><div class="t-sub">/ year + $999 one-time setup</div><div class="badge b-o">100k emails/month</div></div>
+    <div class="tile"><div class="t-lbl">360 AI Agent</div><div class="t-val">$10</div><div class="t-sub">/ user / month &middot; min $999/yr &middot; $999 setup</div><div class="badge b-b">AI SMS automation</div></div>
+    <div class="tile t"><div class="t-lbl">VTP App &mdash; Annual Org License</div><div class="t-val">$4,490</div><div class="t-sub">/ year &middot; 10,000 credits included</div><div class="badge b-g">ORG-level add-on</div></div>
+    <div class="tile"><div class="t-lbl">VTP App &mdash; Credit Pack</div><div class="t-val">$5,000</div><div class="t-sub">one-time &middot; 500,000 credits ($0.01/credit)</div><div class="badge b-b">Bulk Credits</div></div>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128230; Add-On Summary</h3></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Product</th><th>Price</th><th>Billing</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>Mass Email Module</td><td class="mono">$3,999/yr + $999 setup</td><td>Annual + One-time</td><td>100k emails/month. Can use own SendGrid account.</td></tr>
+        <tr><td>360 AI Agent</td><td class="mono">$10/user/mo (min $999/yr)</td><td>Monthly / Annual</td><td>AI-powered SMS responses. $999 one-time setup.</td></tr>
+        <tr><td>VTP App &mdash; Annual Org License</td><td class="mono">$4,490/yr</td><td>Annual</td><td>10,000 credits included</td></tr>
+        <tr><td>VTP App &mdash; Credit Pack</td><td class="mono">$5,000 one-time</td><td>One-time</td><td>500,000 credits @ $0.01/credit</td></tr>
+        <tr><td>Ringless Voicemail (RVM)</td><td class="mono">$0.085/drop</td><td>Per use</td><td>No setup charges. Works on Long Code &amp; Toll-Free.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ A2P / 10DLC ═══ -->
+<div class="section" id="section-a2p">
+  <div class="pg-hdr"><h2>A2P 10DLC Charges</h2><p>Carrier and TCR passthrough fees &mdash; regulatory requirements for A2P messaging in the US</p></div>
+  <div class="tile-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));">
+    <div class="tile r">
+      <div class="t-lbl">10DLC Fasttrack</div>
+      <div class="t-val">$299</div>
+      <div class="t-sub">one-time per new business</div>
+      <div class="badge b-r">Mandatory &mdash; New Business</div>
+    </div>
+  </div>
+  <div class="sf-alert warn">
+    <div class="ai">&#128203;</div>
+    <div><h4>10DLC Fasttrack &mdash; $299 One-Time (Mandatory)</h4>
+    <p><strong>Required for every new business.</strong> For upsells, this fee is only applicable if a new 10DLC campaign needs to be added. Existing customers adding seats or numbers to an existing campaign do not require this fee.</p></div>
+  </div>
+  <div class="sf-alert warn">
+    <div class="ai">&#9888;&#65039;</div>
+    <div><h4>These Are Passthrough Fees</h4>
+    <p>All A2P 10DLC charges are passed through at exact cost from TCR, T-Mobile, and carriers. 360 SMS App does not mark up these fees.</p></div>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128203; TCR &amp; Registration Fees</h3><span class="sub">One-time and monthly registration costs</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Source</th><th>Fee Type</th><th>Amount</th><th>Frequency</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>360 SMS</td><td><strong>10DLC Fasttrack</strong></td><td class="mono" style="color:var(--sf-error);font-weight:700;">$299 one-time</td><td>One-Time</td><td><strong>Mandatory for every new business</strong></td></tr>
+        <tr><td>TCR</td><td>Brand Registration</td><td class="mono">$4 / brand</td><td>One-Time</td><td>Required before campaign registration</td></tr>
+        <tr><td>TCR</td><td>Standard Campaign</td><td class="mono">$10 / campaign</td><td>Monthly</td><td>All standard use cases</td></tr>
+        <tr><td>TCR</td><td>Political Campaign</td><td class="mono">$10 / campaign</td><td>Monthly</td><td>Political use case</td></tr>
+        <tr><td>TCR</td><td>Charity Campaign</td><td class="mono">$3 / campaign</td><td>Monthly</td><td>Nonprofit / charitable use</td></tr>
+        <tr><td>TCR</td><td>Low-Volume Campaign</td><td class="mono">$2 / campaign</td><td>Monthly</td><td>Small orgs, limited throughput</td></tr>
+        <tr><td>TCR</td><td>Agents &amp; Franchises</td><td class="mono">$30 / campaign</td><td>Monthly</td><td>May require external brand vetting</td></tr>
+        <tr><td>TCR</td><td>Emergency Campaign</td><td class="mono">$5 / campaign</td><td>Monthly</td><td>Emergency alerts</td></tr>
+        <tr><td>TCR</td><td>3rd Party Vetting</td><td class="mono">$40 / request</td><td>One-Time</td><td>Non-refundable</td></tr>
+        <tr><td>10DLC Hub</td><td>Manual Campaign Review</td><td class="mono">$15 / submission</td><td>One-Time</td><td>Manual vetting before TCR submission</td></tr>
+        <tr><td>Number Registry</td><td>10DLC Number Registration</td><td class="mono">$0.01 / number</td><td>Monthly</td><td>AT&amp;T and T-Mobile A2P traffic</td></tr>
+        <tr><td>T-Mobile</td><td>NNID Registration</td><td class="mono">$2,000 / NNID</td><td>One-Time</td><td>Dedicated NNID; rare</td></tr>
+        <tr><td>T-Mobile</td><td>Special Business Review</td><td class="mono">$5,000 / campaign</td><td>One-Time</td><td>200k+ outbound messages per brand</td></tr>
+        <tr><td>T-Mobile</td><td>Number Pool Request</td><td class="mono">$2,000 / campaign</td><td>One-Time</td><td>50+ sender numbers on one campaign</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch" style="background:#fff5f5;"><h3 style="color:var(--sf-error);">&#128680; T-Mobile Non-Compliance Fines</h3></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Violation</th><th>Fine</th><th>Trigger</th></tr></thead>
+      <tbody>
+        <tr><td>10DLC Evasion</td><td class="danger">$1,000 / incident</td><td>Snowshoeing, unauthorized routing</td></tr>
+        <tr><td>Unauthorized Text Enablement</td><td class="danger">$10,000 / incident</td><td>Texting before ownership verification / LOA</td></tr>
+        <tr><td>Content Violation</td><td class="danger">$10,000 / incident</td><td>3rd+ SHAFT / T-Mobile CoC / spam violation</td></tr>
+        <tr><td>Grey Route</td><td class="danger">$10 / message</td><td>A2P routed as P2P after 10DLC launch</td></tr>
+        <tr><td>Campaign Non-Use</td><td class="danger">$250 / campaign</td><td>No numbers assigned in a 60-day window</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ CHANNELS ═══ -->
+<div class="section" id="section-channels">
+  <div class="pg-hdr"><h2>Channel Pricing</h2><p>Additional messaging channel add-ons &mdash; all priced per 200 users / year</p></div>
+  <div class="sf-alert info">
+    <div class="ai">&#127760;</div>
+    <div><h4>Channel Add-ons</h4>
+    <p>All channel pricing is <strong>per 200 users per year</strong>. These are add-on modules on top of the base SMS App license. The number of employees and channels scales to each customer.</p></div>
+  </div>
+  <div class="channel-grid">
+    <div class="ch-card"><div class="ch-icon">&#128241;</div><div class="ch-info"><div class="ch-name">WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128242;</div><div class="ch-info"><div class="ch-name">Personal WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128077;</div><div class="ch-info"><div class="ch-name">Facebook</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128247;</div><div class="ch-info"><div class="ch-name">Instagram</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128101;</div><div class="ch-info"><div class="ch-name">LinkedIn</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#127911;</div><div class="ch-info"><div class="ch-name">Viber</div><div class="ch-price">$50,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128172;</div><div class="ch-info"><div class="ch-name">Line</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card"><div class="ch-icon">&#128483;</div><div class="ch-info"><div class="ch-name">KakaoTalk</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#127760; Channel Pricing Reference Table</h3><span class="sub">All rates in USD &middot; per 200 users / year</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Channel</th><th>Annual Price</th><th>Users Included</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Business messaging via WhatsApp</td></tr>
+        <tr><td>Personal WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Personal WhatsApp integration</td></tr>
+        <tr><td>Facebook</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Facebook Messenger integration</td></tr>
+        <tr><td>Instagram</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Instagram DM integration</td></tr>
+        <tr><td>LinkedIn</td><td class="mono">$5,000 / year</td><td>200 users</td><td>LinkedIn messaging integration</td></tr>
+        <tr><td>Viber</td><td class="mono">$50,000 / year</td><td>200 users</td><td>Viber business messaging</td></tr>
+        <tr><td>Line</td><td class="mono">$12,000 / year</td><td>200 users</td><td>Line messaging integration</td></tr>
+        <tr><td>KakaoTalk</td><td class="mono">$12,000 / year</td><td>200 users</td><td>KakaoTalk messaging integration</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ CONQUER DISCOUNTS ═══ -->
+<div class="section" id="section-discounts">
+  <div class="pg-hdr"><h2>Conquer Partner Discounts</h2><p>Exclusive annual rates negotiated for the Conquer partnership</p></div>
+  <div class="p-banner">
+    <div>
+      <h3>&#129309; Your Exclusive Partner Rates</h3>
+      <p>Specific to the Conquer partnership &mdash; significantly discounted from standard list prices. Annual commitment required.</p>
+    </div>
+    <div class="bstats">
+      <div class="bs"><div class="bv">$60</div><div class="bl">Number / yr<br><span style="opacity:.5;font-size:10px">(list: $180)</span></div></div>
+      <div class="bs"><div class="bv">$84</div><div class="bl">License / yr<br><span style="opacity:.5;font-size:10px">(list: $180)</span></div></div>
+      <div class="bs"><div class="bv">53&ndash;67%</div><div class="bl">Off List Price</div></div>
+    </div>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128202; List Price vs. Conquer Partner Price (Annual)</h3></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Item</th><th>List Price / yr</th><th>Conquer Partner Price / yr</th><th>Discount</th><th>Savings</th></tr></thead>
+      <tbody>
+        <tr class="hl-row"><td><strong>Phone Number</strong></td><td>$180 / number / yr</td><td class="mono">$60 / number / yr</td><td><span class="dc">66.7% OFF</span></td><td class="free">$120 saved / number</td></tr>
+        <tr class="hl-row"><td><strong>SMS App License</strong></td><td>$180 / user / yr</td><td class="mono">$84 / user / yr</td><td><span class="dc">53.3% OFF</span></td><td class="free">$96 saved / user</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sf-card">
+    <div class="sf-ch"><h3>&#128172; Conquer Message Rates</h3><span class="sub">Consistent $0.0169 per SMS across all number types</span></div>
+    <table class="sf-tbl">
+      <thead><tr><th>Message Type</th><th>Number Type</th><th>Rate</th><th>Direction</th></tr></thead>
+      <tbody>
+        <tr><td>SMS</td><td>Long Code / Toll-Free / Shortcode</td><td class="mono">$0.0169</td><td>Outbound</td></tr>
+        <tr><td>SMS</td><td>All Types</td><td class="free">Free</td><td>Inbound</td></tr>
+        <tr><td>MMS</td><td>Long Code</td><td class="mono">$0.03</td><td>Outbound</td></tr>
+        <tr><td>MMS</td><td>Long Code</td><td class="mono">$0.015</td><td>Inbound</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sf-alert info">
+    <div class="ai">&#128172;</div>
+    <div><h4>Need a Better Rate? Let&rsquo;s Talk.</h4>
+    <p>For large seat counts, competitive situations, or multi-year commitments &mdash; <a href="mailto:yash@360smsapp.com">yash@360smsapp.com</a> &middot; <a href="https://outlook.office.com/bookwithme/user/aa3615e3963840dd9dbf66931d9f53f5@360smsapp.com?anonymous&ismsaljsauthenabled&ep=bwmEmailSignature" target="_blank">Book a Meeting</a></p></div>
+  </div>
+</div>
+
+<!-- ═══ CALCULATOR ═══ -->
+<div class="section" id="section-calculator">
+  <div class="pg-hdr"><h2>Annual Cost Calculator</h2><p>Estimate annual licensing, number, messaging, and channel costs</p></div>
+  <div class="calc-box">
+    <div class="calc-form">
+      <h3>&#129518; Build Your Quote</h3>
+      <p>Enter deployment details to generate an annual pricing estimate.</p>
+
+      <div class="section-divider">&#129334; Licensing &amp; Numbers</div>
+      <div class="cg">
+        <div class="cf">
+          <label>Number of Users</label>
+          <input type="number" id="c_users" value="50" min="0" oninput="calcUpdate()">
+        </div>
+        <div class="cf">
+          <label>Number of Phone Numbers</label>
+          <input type="number" id="c_numbers" value="20" min="0" oninput="calcUpdate()">
+        </div>
+        <div class="cf">
+          <label>Number Type</label>
+          <select id="c_numtype" onchange="calcUpdate()">
+            <option value="5" selected>Normal Long Code &mdash; $5/mo</option>
+            <option value="7">Toll-Free &mdash; $7/mo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-divider">&#128172; Monthly Message Volumes</div>
+      <div class="cg">
+        <div class="cf">
+          <label>Est. Monthly SMS (Outbound)</label>
+          <input type="number" id="c_sms" value="10000" min="0" oninput="calcUpdate()">
+          <div class="field-note">$0.0169 / message</div>
+        </div>
+        <div class="cf">
+          <label>Est. Monthly MMS (Outbound)</label>
+          <input type="number" id="c_mms" value="0" min="0" oninput="calcUpdate()">
+          <div class="field-note">$0.03 / message</div>
+        </div>
+        <div class="cf">
+          <label>Est. Monthly RVM Drops</label>
+          <input type="number" id="c_rvm" value="0" min="0" oninput="calcUpdate()">
+          <div class="field-note">$0.085 / drop</div>
+        </div>
+        <div class="cf">
+          <label>Annual Credit Recharge ($)</label>
+          <input type="number" id="c_recharge" value="1000" min="1000" oninput="rechargeManual()">
+          <div class="field-note" id="recharge_note">Auto-calculated from volume &middot; min $1,000</div>
+        </div>
+      </div>
+
+      <div class="section-divider">&#128680; 10DLC Fasttrack</div>
+      <div class="cg">
+        <div class="cf">
+          <label>10DLC Fasttrack ($299 one-time)</label>
+          <select id="c_10dlc" onchange="calcUpdate()">
+            <option value="299" selected>Yes &mdash; New Business ($299)</option>
+            <option value="0">No &mdash; Upsell (existing campaign)</option>
+          </select>
+          <div class="field-note">&#9888;&#65039; Required for every new business. For upsells, only needed if adding a new 10DLC campaign.</div>
+        </div>
+      </div>
+
+      <div class="section-divider">&#127760; Add-On Channels (optional)</div>
+      <div class="cf">
+        <label>Select Channels</label>
+        <div class="channel-select" id="channelSelect">
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="WhatsApp"> <span>&#128241; WhatsApp &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Personal WhatsApp"> <span>&#128242; Personal WhatsApp &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Facebook"> <span>&#128077; Facebook &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Instagram"> <span>&#128247; Instagram &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="LinkedIn"> <span>&#128101; LinkedIn &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="50000" data-name="Viber"> <span>&#127911; Viber &mdash; $50,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="12000" data-name="Line"> <span>&#128172; Line &mdash; $12,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="12000" data-name="KakaoTalk"> <span>&#128483; KakaoTalk &mdash; $12,000/yr</span></label>
+        </div>
+        <div class="field-note" style="margin-top:6px;">All channel pricing is per 200 users / year</div>
+      </div>
+    </div>
+
+    <div class="calc-result">
+      <div class="cr-title">Annual Cost Estimate</div>
+      <div class="rg">
+        <div class="ri"><label>User Licenses</label><div class="rv" id="r_lic">$4,200</div></div>
+        <div class="ri"><label>Phone Numbers</label><div class="rv" id="r_numbers">$1,200</div></div>
+        <div class="ri"><label>Credit Recharge</label><div class="rv" id="r_recharge">$1,000</div></div>
+        <div class="ri"><label>10DLC Fasttrack</label><div class="rv" id="r_10dlc">$299</div></div>
+        <div class="ri"><label>Channel Add-ons</label><div class="rv channel-total" id="r_channels">$0</div></div>
+      </div>
+      <hr class="rdiv">
+      <div class="rg">
+        <div class="ri"><label>Total Annual Cost</label><div class="rv grand" id="r_total">$6,699</div></div>
+        <div class="ri"><label>Monthly Equivalent</label><div class="rv" id="r_monthly">$558.25/mo</div></div>
+      </div>
+      <div class="cr-box">
+        <div class="ci">&#129689;</div>
+        <div class="ct">
+          <label>SMS Credits From Recharge</label>
+          <div class="cv" id="r_credits">&mdash;</div>
+          <div class="cs" id="r_credits_sub">Based on $0.0169 / SMS segment</div>
+        </div>
+      </div>
+      <div class="note-box" id="r_note_10dlc">
+        <strong>&#9888; 10DLC Fasttrack Note:</strong> The $299 one-time fee is included as this is a new business deal. For upsells where the customer already has an active 10DLC campaign, select &ldquo;No &mdash; Upsell&rdquo; above to remove it.
+      </div>
+      <div class="note-box" id="r_channel_list" style="display:none;">
+        <strong>&#127760; Selected Channels:</strong> <span id="r_channel_names"></span>
+      </div>
+    </div>
+  </div>
+  <div class="sf-alert info">
+    <div class="ai">&#128172;</div>
+    <div><h4>This estimate doesn&rsquo;t look right?</h4>
+    <p>For high-volume SMS, competitive deals, or multi-year bundles &mdash; connect with <strong>Yash</strong> for a tailored quote. <a href="mailto:yash@360smsapp.com">yash@360smsapp.com</a> &middot; <a href="https://outlook.office.com/bookwithme/user/aa3615e3963840dd9dbf66931d9f53f5@360smsapp.com?anonymous&ismsaljsauthenabled&ep=bwmEmailSignature" target="_blank">Book a Meeting</a></p></div>
+  </div>
+</div>
+
+<div class="no-result" id="noResult"><span>&#128269;</span>No results found. Try a different term or browse the tabs above.</div>
+</main>
+
+<script>
+var rechargeOverridden = false;
+
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
+  var sec = document.getElementById('section-' + id);
+  if (sec) sec.classList.add('active');
+  if (el) el.classList.add('active');
+  document.getElementById('noResult').style.display = 'none';
+  document.getElementById('globalSearch').value = '';
+  if (id === 'calculator') calcUpdate();
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:2});
+}
+
+function toggleChannel(lbl) {
+  // Toggle checked class
+  setTimeout(function() {
+    var cb = lbl.querySelector('input[type=checkbox]');
+    if (cb.checked) lbl.classList.add('checked');
+    else lbl.classList.remove('checked');
+    calcUpdate();
+  }, 0);
+}
+
+function rechargeManual() {
+  var val = parseFloat(document.getElementById('c_recharge').value) || 0;
+  if (val < 1000) {
+    document.getElementById('c_recharge').value = 1000;
+  }
+  rechargeOverridden = true;
+  calcUpdate();
+}
+
+function calcUpdate() {
+  var users    = parseFloat(document.getElementById('c_users').value)    || 0;
+  var nums     = parseFloat(document.getElementById('c_numbers').value)   || 0;
+  var numPrice = parseFloat(document.getElementById('c_numtype').value)   || 5;
+  var smsMonth = parseFloat(document.getElementById('c_sms').value)       || 0;
+  var mmsMonth = parseFloat(document.getElementById('c_mms').value)       || 0;
+  var rvmMonth = parseFloat(document.getElementById('c_rvm').value)       || 0;
+  var dlcFee   = parseFloat(document.getElementById('c_10dlc').value)     || 0;
+
+  // Auto-calculate recharge unless user overrode it
+  if (!rechargeOverridden) {
+    var autoRecharge = (smsMonth * 0.0169 + mmsMonth * 0.03 + rvmMonth * 0.085) * 12;
+    if (autoRecharge < 1000) autoRecharge = 1000;
+    autoRecharge = Math.ceil(autoRecharge / 100) * 100; // round up to nearest $100
+    document.getElementById('c_recharge').value = autoRecharge;
+    document.getElementById('recharge_note').textContent =
+      'Auto-calculated from volume · min $1,000 · edit to override';
+  }
+
+  var recharge = parseFloat(document.getElementById('c_recharge').value) || 1000;
+  if (recharge < 1000) { recharge = 1000; document.getElementById('c_recharge').value = 1000; }
+
+  var licCost  = users * 7 * 12;
+  var numCost  = nums  * numPrice * 12;
+  var credits  = Math.floor(recharge / 0.0169);
+
+  // Channel costs
+  var channelTotal = 0;
+  var channelNames = [];
+  document.querySelectorAll('#channelSelect input[type=checkbox]').forEach(function(cb) {
+    if (cb.checked) {
+      channelTotal += parseFloat(cb.value) || 0;
+      channelNames.push(cb.getAttribute('data-name'));
+    }
+  });
+
+  var total = licCost + numCost + recharge + dlcFee + channelTotal;
+
+  document.getElementById('r_lic').textContent      = fmt(licCost);
+  document.getElementById('r_numbers').textContent  = fmt(numCost);
+  document.getElementById('r_recharge').textContent = fmt(recharge);
+  document.getElementById('r_10dlc').textContent    = dlcFee > 0 ? fmt(dlcFee) : '$0 (Upsell)';
+  document.getElementById('r_channels').textContent = fmt(channelTotal);
+  document.getElementById('r_total').textContent    = fmt(total);
+  document.getElementById('r_monthly').textContent  = fmt(total / 12) + '/mo';
+  document.getElementById('r_credits').textContent  = credits.toLocaleString() + ' SMS segments';
+  document.getElementById('r_credits_sub').textContent =
+    'At $0.0169/segment · SMS: ' + smsMonth.toLocaleString() +
+    '/mo · MMS: ' + mmsMonth.toLocaleString() +
+    '/mo · RVM: ' + rvmMonth.toLocaleString() + '/mo';
+
+  // 10DLC note
+  document.getElementById('r_note_10dlc').style.display = dlcFee > 0 ? 'block' : 'none';
+
+  // Channel list note
+  if (channelNames.length > 0) {
+    document.getElementById('r_channel_list').style.display = 'block';
+    document.getElementById('r_channel_names').textContent = channelNames.join(', ');
+  } else {
+    document.getElementById('r_channel_list').style.display = 'none';
+  }
+}
+
+function runSearch(q) {
+  if (!q.trim()) {
+    document.querySelectorAll('.section').forEach(s => { s.style.display=''; });
+    document.getElementById('noResult').style.display = 'none';
+    return;
+  }
+  q = q.toLowerCase();
+  var found = false;
+  document.querySelectorAll('.section').forEach(function(sec) {
+    if (sec.textContent.toLowerCase().includes(q)) {
+      sec.style.display='block'; sec.classList.add('active'); found=true;
+    } else { sec.style.display='none'; sec.classList.remove('active'); }
+  });
+  document.getElementById('noResult').style.display = found ? 'none' : 'block';
+}
+
+// Also reset override flag when volume inputs change
+['c_sms','c_mms','c_rvm'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('input', function() { rechargeOverridden = false; });
+});
+
+calcUpdate();
+</script>
+</body>
+</html>
