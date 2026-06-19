@@ -110,6 +110,21 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 .sf-alert a{color:var(--sf-blue);font-weight:600;text-decoration:none;}
 .sf-alert a:hover{text-decoration:underline;}
 
+/* PACKAGE CARD */
+.pkg-links{display:flex;flex-direction:column;}
+.pkg-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+.pkg-env{display:flex;align-items:center;gap:12px;}
+.pkg-env-icon{font-size:22px;flex-shrink:0;}
+.pkg-env-label{font-size:14px;font-weight:700;color:var(--sf-navy);}
+.pkg-env-sub{font-size:11px;color:var(--sf-text-light);margin-top:2px;}
+.pkg-divider{height:1px;background:var(--sf-border);}
+.copy-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:var(--sf-radius-lg);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;background:var(--sf-blue);color:white;border:none;transition:background .15s,transform .1s;white-space:nowrap;}
+.copy-btn:hover{background:var(--sf-blue-hover);transform:translateY(-1px);}
+.copy-btn.copied{background:var(--sf-success);}
+.pkg-badge-row{display:flex;align-items:center;gap:10px;}
+.pkg-version{font-family:'SFMono-Regular',Consolas,monospace;font-size:13px;font-weight:700;color:var(--sf-teal);background:#e6faf9;border:1px solid #b3ece8;padding:3px 10px;border-radius:20px;}
+.pkg-mandatory{background:var(--sf-error);color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;}
+
 /* PAM */
 .pam-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:22px;display:flex;align-items:center;gap:18px;box-shadow:var(--sf-shadow);margin-bottom:20px;}
 .pam-av{width:60px;height:60px;background:linear-gradient(135deg,var(--sf-blue),var(--sf-teal));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:white;flex-shrink:0;}
@@ -319,6 +334,49 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
     <div class="tile r"><div class="t-lbl">10DLC Fasttrack</div><div class="t-val">$299</div><div class="t-sub">one-time &middot; new business only</div><div class="badge b-r">Mandatory New Biz</div></div>
     <div class="tile g"><div class="t-lbl">Inbound SMS</div><div class="t-val">Free</div><div class="t-sub">always free on all number types</div><div class="badge b-g">Always Included</div></div>
   </div>
+  <!-- Latest Package Card -->
+  <div class="sf-card" id="pkg-card">
+    <div class="sf-ch">
+      <h3>&#128230; Latest Package Release</h3>
+      <div class="pkg-badge-row">
+        <span class="pkg-mandatory">&#9888; Mandatory Upgrade</span>
+        <span class="pkg-version">v1.325.6</span>
+      </div>
+    </div>
+    <div class="sf-cb">
+      <div class="sf-alert warn" style="margin-bottom:16px;">
+        <div class="ai">&#128274;</div>
+        <div>
+          <h4>Mandatory upgrade for all customers &mdash; Salesforce Security Upgrade</h4>
+          <p>This release addresses critical Salesforce security requirements: <strong>Refresh Token Rotation</strong> and <strong>PKCE (Proof Key for Code Exchange)</strong>. All customers must be upgraded to this version to remain compliant.</p>
+        </div>
+      </div>
+      <div class="pkg-links">
+        <div class="pkg-row">
+          <div class="pkg-env">
+            <span class="pkg-env-icon">&#129514;</span>
+            <div>
+              <div class="pkg-env-label">Sandbox</div>
+              <div class="pkg-env-sub">test.salesforce.com &mdash; install &amp; test before production</div>
+            </div>
+          </div>
+          <button class="copy-btn" id="copybtn-sandbox" onclick="copyPkgLink('sandbox')">&#128203; Copy Install Link</button>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-row">
+          <div class="pkg-env">
+            <span class="pkg-env-icon">&#127970;</span>
+            <div>
+              <div class="pkg-env-label">Production</div>
+              <div class="pkg-env-sub">login.salesforce.com &mdash; live org installation</div>
+            </div>
+          </div>
+          <button class="copy-btn" id="copybtn-production" onclick="copyPkgLink('production')">&#128203; Copy Install Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="pam-card">
     <div class="pam-av">Y</div>
     <div class="pam-info">
@@ -1090,6 +1148,23 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 </main>
 
 <script>
+var pkgLinks = {
+  sandbox: 'https://test.salesforce.com/packaging/installPackage.apexp?p0=04tNS000000RuJ3',
+  production: 'https://login.salesforce.com/packaging/installPackage.apexp?p0=04tNS000000RuJ3'
+};
+
+function copyPkgLink(env) {
+  navigator.clipboard.writeText(pkgLinks[env]).then(function() {
+    var btn = document.getElementById('copybtn-' + env);
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.innerHTML = '&#128203; Copy Install Link';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
 var rechargeOverridden = false;
 
 function showSection(id, el) {
