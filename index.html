@@ -76,6 +76,16 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 .b-o{background:var(--sf-warning-bg);color:#885400;}
 .b-r{background:var(--sf-error-bg);color:var(--sf-error);}
 .b-p{background:#f3ecfd;color:var(--sf-purple);}
+.tile[onclick]{cursor:pointer;}
+.tile[onclick]::after{content:'View in summary \2193';position:absolute;bottom:10px;right:14px;font-size:10px;font-weight:600;color:var(--sf-blue);opacity:0;transition:opacity .15s;}
+.tile[onclick]:hover::after{opacity:.85;}
+.sf-tbl tr.row-flash td{animation:rowFlash 1.9s ease;}
+@keyframes rowFlash{0%,35%{background:#ffe08a;}100%{background:transparent;}}
+.sf-card.card-flash{animation:cardFlash 1.9s ease;}
+@keyframes cardFlash{0%,35%{box-shadow:0 0 0 3px var(--sf-warning),var(--sf-shadow);}100%{box-shadow:var(--sf-shadow);}}
+.detail-link{color:var(--sf-blue);font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;}
+.detail-link:hover{text-decoration:underline;}
+.tile-hint{font-size:12px;color:var(--sf-text-light);margin:-6px 0 16px;display:flex;align-items:center;gap:6px;}
 
 /* CARD */
 .sf-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);box-shadow:var(--sf-shadow);overflow:hidden;margin-bottom:20px;}
@@ -468,36 +478,37 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 <!-- ═══ ADD-ONS ═══ -->
 <div class="section" id="section-addons">
   <div class="pg-hdr"><h2>Add-On Products</h2><p>Optional modules to extend your 360 SMS App deployment</p></div>
+  <div class="tile-hint">&#128070; Click any add-on below to jump to its full details in the summary table.</div>
   <div class="tile-grid">
-    <div class="tile o"><div class="t-lbl">Mass Email Module</div><div class="t-val">$3,999</div><div class="t-sub">/ year + $999 one-time setup</div><div class="badge b-o">100k emails/month</div></div>
-    <div class="tile"><div class="t-lbl">360 AI Agent</div><div class="t-val">$10</div><div class="t-sub">/ user / month &middot; min $999/yr &middot; $999 setup</div><div class="badge b-b">AI SMS automation</div></div>
-    <div class="tile t"><div class="t-lbl">VTP App &mdash; Annual Org License</div><div class="t-val">$4,490</div><div class="t-sub">/ year &middot; 10,000 credits included</div><div class="badge b-g">ORG-level add-on</div></div>
-    <div class="tile"><div class="t-lbl">VTP App &mdash; Credit Pack</div><div class="t-val">$5,000</div><div class="t-sub">one-time &middot; 500,000 credits ($0.01/credit)</div><div class="badge b-b">Bulk Credits</div></div>
-    <div class="tile t"><div class="t-lbl">Group Texting</div><div class="t-val">$999</div><div class="t-sub">/ year / org</div><div class="badge b-g">ORG-level add-on</div></div>
-    <div class="tile p"><div class="t-lbl">Textolic &mdash; SMS + CTI</div><div class="t-val">$540</div><div class="t-sub">/ user / year &middot; unlimited calling*</div><div class="badge b-p">SMS + Calling</div></div>
-    <div class="tile"><div class="t-lbl">Textolic &mdash; SMS Only</div><div class="t-val">$30</div><div class="t-sub">/ user / year</div><div class="badge b-b">SMS Only</div></div>
-    <div class="tile t"><div class="t-lbl">Link Shortening (BYOD)</div><div class="t-val" style="font-size:17px;line-height:1.2;">Custom<br>Domain</div><div class="t-sub">Bring Your Own Domain</div><div class="badge b-g">Anti-SPAM</div></div>
+    <div class="tile o" onclick="goToSummary('sum-massemail')"><div class="t-lbl">Mass Email Module</div><div class="t-val">$3,999</div><div class="t-sub">/ year + $999 one-time setup</div><div class="badge b-o">100k emails/month</div></div>
+    <div class="tile" onclick="goToSummary('sum-aiagent')"><div class="t-lbl">360 AI Agent</div><div class="t-val">$10</div><div class="t-sub">/ user / month &middot; min $999/yr &middot; $999 setup</div><div class="badge b-b">AI SMS automation</div></div>
+    <div class="tile t" onclick="goToSummary('sum-vtpannual')"><div class="t-lbl">VTP App &mdash; Annual Org License</div><div class="t-val">$4,490</div><div class="t-sub">/ year &middot; 10,000 credits included</div><div class="badge b-g">ORG-level add-on</div></div>
+    <div class="tile" onclick="goToSummary('sum-vtpcredit')"><div class="t-lbl">VTP App &mdash; Credit Pack</div><div class="t-val">$5,000</div><div class="t-sub">one-time &middot; 500,000 credits ($0.01/credit)</div><div class="badge b-b">Bulk Credits</div></div>
+    <div class="tile t" onclick="goToSummary('sum-grouptexting')"><div class="t-lbl">Group Texting</div><div class="t-val">$999</div><div class="t-sub">/ year / org</div><div class="badge b-g">ORG-level add-on</div></div>
+    <div class="tile p" onclick="goToSummary('sum-textcti')"><div class="t-lbl">Textolic &mdash; SMS + CTI</div><div class="t-val">$540</div><div class="t-sub">/ user / year &middot; unlimited calling*</div><div class="badge b-p">SMS + Calling</div></div>
+    <div class="tile" onclick="goToSummary('sum-textsms')"><div class="t-lbl">Textolic &mdash; SMS Only</div><div class="t-val">$30</div><div class="t-sub">/ user / year</div><div class="badge b-b">SMS Only</div></div>
+    <div class="tile t" onclick="goToSummary('sum-link')"><div class="t-lbl">Link Shortening (BYOD)</div><div class="t-val">$1,999</div><div class="t-sub">/ year / org &middot; custom domain</div><div class="badge b-g">Anti-SPAM</div></div>
   </div>
   <div class="sf-card">
-    <div class="sf-ch"><h3>&#128230; Add-On Summary</h3></div>
+    <div class="sf-ch"><h3>&#128230; Add-On Summary</h3><span class="sub">All add-on products in one place</span></div>
     <table class="sf-tbl">
       <thead><tr><th>Product</th><th>Price</th><th>Billing</th><th>Includes</th></tr></thead>
       <tbody>
-        <tr><td>Mass Email Module</td><td class="mono">$3,999/yr + $999 setup</td><td>Annual + One-time</td><td>100k emails/month. Can use own SendGrid account.</td></tr>
-        <tr><td>360 AI Agent</td><td class="mono">$10/user/mo (min $999/yr)</td><td>Monthly / Annual</td><td>AI-powered SMS responses. $999 one-time setup.</td></tr>
-        <tr><td>VTP App &mdash; Annual Org License</td><td class="mono">$4,490/yr</td><td>Annual</td><td>10,000 credits included</td></tr>
-        <tr><td>VTP App &mdash; Credit Pack</td><td class="mono">$5,000 one-time</td><td>One-time</td><td>500,000 credits @ $0.01/credit</td></tr>
-        <tr><td>Group Texting</td><td class="mono">$999/yr</td><td>Annual</td><td>ORG-level add-on. Enables group messaging across the org.</td></tr>
-        <tr><td>Textolic &mdash; SMS + CTI</td><td class="mono">$540/user/yr</td><td>Annual per user</td><td>Mobile App + SMS + CTI with unlimited calling. Fair Usage: 2,500 min/user/mo. SMS rates same as 360 SMS App.</td></tr>
-        <tr><td>Textolic &mdash; SMS Only</td><td class="mono">$30/user/yr</td><td>Annual per user</td><td>Mobile App + SMS only. SMS rates same as 360 SMS App for Salesforce.</td></tr>
-        <tr><td>Link Shortening (BYOD)</td><td class="mono">&mdash;</td><td>Custom domain</td><td>Bring Your Own Domain for link shortening. Reduces SPAM flag rates vs. generic shorteners (TinyURL, Bitly).</td></tr>
-        <tr><td>Ringless Voicemail (RVM)</td><td class="mono">$0.085/drop</td><td>Per use</td><td>No setup charges. Works on Long Code &amp; Toll-Free.</td></tr>
+        <tr id="sum-massemail"><td>Mass Email Module</td><td class="mono">$3,999/yr + $999 setup</td><td>Annual + One-time</td><td>100k emails/month. Can use own SendGrid account.</td></tr>
+        <tr id="sum-aiagent"><td>360 AI Agent</td><td class="mono">$10/user/mo (min $999/yr)</td><td>Monthly / Annual</td><td>AI-powered SMS responses. $999 one-time setup.</td></tr>
+        <tr id="sum-vtpannual"><td>VTP App &mdash; Annual Org License</td><td class="mono">$4,490/yr</td><td>Annual</td><td>10,000 credits included</td></tr>
+        <tr id="sum-vtpcredit"><td>VTP App &mdash; Credit Pack</td><td class="mono">$5,000 one-time</td><td>One-time</td><td>500,000 credits @ $0.01/credit</td></tr>
+        <tr id="sum-grouptexting"><td>Group Texting</td><td class="mono">$999/yr</td><td>Annual</td><td>ORG-level add-on. Enables group messaging across the org.</td></tr>
+        <tr id="sum-textcti"><td>Textolic &mdash; SMS + CTI</td><td class="mono">$540/user/yr</td><td>Annual per user</td><td>Mobile App + SMS + CTI with unlimited calling. Fair Usage: 2,500 min/user/mo. &nbsp;<a class="detail-link" onclick="goToDetail('detail-textolic')">View full details &darr;</a></td></tr>
+        <tr id="sum-textsms"><td>Textolic &mdash; SMS Only</td><td class="mono">$30/user/yr</td><td>Annual per user</td><td>Mobile App + SMS only. SMS rates same as 360 SMS App. &nbsp;<a class="detail-link" onclick="goToDetail('detail-textolic')">View full details &darr;</a></td></tr>
+        <tr id="sum-link"><td>Link Shortening (BYOD)</td><td class="mono">$1,999/yr</td><td>Annual per org</td><td>Bring Your Own Domain for link shortening. Reduces SPAM flag rates vs. generic shorteners. &nbsp;<a class="detail-link" onclick="goToDetail('detail-link')">View full details &darr;</a></td></tr>
+        <tr id="sum-rvm"><td>Ringless Voicemail (RVM)</td><td class="mono">$0.085/drop</td><td>Per use</td><td>No setup charges. Works on Long Code &amp; Toll-Free.</td></tr>
       </tbody>
     </table>
   </div>
 
   <!-- Textolic Detailed Card -->
-  <div class="sf-card">
+  <div class="sf-card" id="detail-textolic">
     <div class="sf-ch">
       <h3>&#128241; Textolic &mdash; Pricing &amp; Fair Usage Details</h3>
       <span class="sub">Mobile App add-on &middot; per user / year</span>
@@ -541,17 +552,17 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
   </div>
 
   <!-- Link Shortening BYOD Card -->
-  <div class="sf-card">
+  <div class="sf-card" id="detail-link">
     <div class="sf-ch">
       <h3>&#128279; Link Shortening &mdash; Custom Domain (BYOD)</h3>
-      <span class="sub">Bring Your Own Domain</span>
+      <span class="sub">$1,999 / org / year &middot; Bring Your Own Domain</span>
     </div>
     <div class="sf-cb">
       <div class="sf-alert success" style="margin-bottom:0;">
         <div class="ai">&#128737;&#65039;</div>
         <div>
           <h4>Reduce SPAM Flag Rates with Your Own Domain</h4>
-          <p>Users can bring their own custom domain to shorten links included in messages. Using a known, trusted domain significantly reduces the risk of messages being flagged as SPAM by carriers and spam filters.</p>
+          <p><strong>Priced at $1,999 per org per year.</strong> Users can bring their own custom domain to shorten links included in messages. Using a known, trusted domain significantly reduces the risk of messages being flagged as SPAM by carriers and spam filters.</p>
           <p style="margin-top:8px;">Generic shorteners such as <strong>TinyURL</strong> or <strong>Bitly</strong> are commonly blacklisted, which increases the likelihood of messages being marked as SPAM and reduces deliverability. With BYOD link shortening, the shortened URL reflects a domain your customers recognise &mdash; keeping message trust scores high.</p>
         </div>
       </div>
@@ -1220,6 +1231,26 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 </main>
 
 <script>
+function goToSummary(rowId) {
+  var row = document.getElementById(rowId);
+  if (!row) return;
+  row.scrollIntoView({behavior:'smooth', block:'center'});
+  row.classList.remove('row-flash');
+  void row.offsetWidth;
+  row.classList.add('row-flash');
+  setTimeout(function(){ row.classList.remove('row-flash'); }, 1900);
+}
+
+function goToDetail(cardId) {
+  var card = document.getElementById(cardId);
+  if (!card) return;
+  card.scrollIntoView({behavior:'smooth', block:'start'});
+  card.classList.remove('card-flash');
+  void card.offsetWidth;
+  card.classList.add('card-flash');
+  setTimeout(function(){ card.classList.remove('card-flash'); }, 1900);
+}
+
 var pkgLinks = {
   sandbox: 'https://test.salesforce.com/packaging/installPackage.apexp?p0=04tNS000000RuJ3',
   production: 'https://login.salesforce.com/packaging/installPackage.apexp?p0=04tNS000000RuJ3'
