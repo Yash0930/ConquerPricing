@@ -61,18 +61,21 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 .tile.o::before{background:var(--sf-warning);}
 .tile.t::before{background:var(--sf-teal);}
 .tile.r::before{background:var(--sf-error);}
+.tile.p::before{background:var(--sf-purple);}
 .t-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--sf-text-light);margin-bottom:8px;}
 .t-val{font-size:26px;font-weight:700;color:var(--sf-blue);line-height:1;margin-bottom:5px;}
 .tile.g .t-val{color:var(--sf-success);}
 .tile.o .t-val{color:var(--sf-warning);}
 .tile.t .t-val{color:var(--sf-teal);}
 .tile.r .t-val{color:var(--sf-error);}
+.tile.p .t-val{color:var(--sf-purple);}
 .t-sub{font-size:12px;color:var(--sf-text-light);}
 .badge{display:inline-block;margin-top:10px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
 .b-b{background:var(--sf-blue-light);color:var(--sf-blue);}
 .b-g{background:var(--sf-success-bg);color:var(--sf-success);}
 .b-o{background:var(--sf-warning-bg);color:#885400;}
 .b-r{background:var(--sf-error-bg);color:var(--sf-error);}
+.b-p{background:#f3ecfd;color:var(--sf-purple);}
 
 /* CARD */
 .sf-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);box-shadow:var(--sf-shadow);overflow:hidden;margin-bottom:20px;}
@@ -471,6 +474,9 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
     <div class="tile t"><div class="t-lbl">VTP App &mdash; Annual Org License</div><div class="t-val">$4,490</div><div class="t-sub">/ year &middot; 10,000 credits included</div><div class="badge b-g">ORG-level add-on</div></div>
     <div class="tile"><div class="t-lbl">VTP App &mdash; Credit Pack</div><div class="t-val">$5,000</div><div class="t-sub">one-time &middot; 500,000 credits ($0.01/credit)</div><div class="badge b-b">Bulk Credits</div></div>
     <div class="tile t"><div class="t-lbl">Group Texting</div><div class="t-val">$999</div><div class="t-sub">/ year / org</div><div class="badge b-g">ORG-level add-on</div></div>
+    <div class="tile p"><div class="t-lbl">Textolic &mdash; SMS + CTI</div><div class="t-val">$540</div><div class="t-sub">/ user / year &middot; unlimited calling*</div><div class="badge b-p">SMS + Calling</div></div>
+    <div class="tile"><div class="t-lbl">Textolic &mdash; SMS Only</div><div class="t-val">$30</div><div class="t-sub">/ user / year</div><div class="badge b-b">SMS Only</div></div>
+    <div class="tile t"><div class="t-lbl">Link Shortening (BYOD)</div><div class="t-val" style="font-size:17px;line-height:1.2;">Custom<br>Domain</div><div class="t-sub">Bring Your Own Domain</div><div class="badge b-g">Anti-SPAM</div></div>
   </div>
   <div class="sf-card">
     <div class="sf-ch"><h3>&#128230; Add-On Summary</h3></div>
@@ -482,10 +488,76 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
         <tr><td>VTP App &mdash; Annual Org License</td><td class="mono">$4,490/yr</td><td>Annual</td><td>10,000 credits included</td></tr>
         <tr><td>VTP App &mdash; Credit Pack</td><td class="mono">$5,000 one-time</td><td>One-time</td><td>500,000 credits @ $0.01/credit</td></tr>
         <tr><td>Group Texting</td><td class="mono">$999/yr</td><td>Annual</td><td>ORG-level add-on. Enables group messaging across the org.</td></tr>
+        <tr><td>Textolic &mdash; SMS + CTI</td><td class="mono">$540/user/yr</td><td>Annual per user</td><td>Mobile App + SMS + CTI with unlimited calling. Fair Usage: 2,500 min/user/mo. SMS rates same as 360 SMS App.</td></tr>
+        <tr><td>Textolic &mdash; SMS Only</td><td class="mono">$30/user/yr</td><td>Annual per user</td><td>Mobile App + SMS only. SMS rates same as 360 SMS App for Salesforce.</td></tr>
+        <tr><td>Link Shortening (BYOD)</td><td class="mono">&mdash;</td><td>Custom domain</td><td>Bring Your Own Domain for link shortening. Reduces SPAM flag rates vs. generic shorteners (TinyURL, Bitly).</td></tr>
         <tr><td>Ringless Voicemail (RVM)</td><td class="mono">$0.085/drop</td><td>Per use</td><td>No setup charges. Works on Long Code &amp; Toll-Free.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <!-- Textolic Detailed Card -->
+  <div class="sf-card">
+    <div class="sf-ch">
+      <h3>&#128241; Textolic &mdash; Pricing &amp; Fair Usage Details</h3>
+      <span class="sub">Mobile App add-on &middot; per user / year</span>
+    </div>
+    <div class="sf-cb">
+      <table class="sf-tbl" style="margin-bottom:18px;">
+        <thead><tr><th>Plan</th><th>Price</th><th>Includes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>SMS + CTI (Unlimited Calling)</strong></td>
+            <td class="mono" style="color:var(--sf-purple);">$540 / user / year</td>
+            <td>Textolic Mobile App with SMS and CTI with unlimited calling <em>(subject to Fair Usage Policy below)</em></td>
+          </tr>
+          <tr>
+            <td><strong>SMS Only</strong></td>
+            <td class="mono">$30 / user / year</td>
+            <td>Textolic Mobile App with SMS only</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="sf-alert warn">
+        <div class="ai">&#9878;&#65039;</div>
+        <div>
+          <h4>Fair Usage Policy &mdash; Calling Minutes</h4>
+          <p>A Fair Usage Policy of <strong>2,500 calling minutes (incoming + outgoing combined) per user per month</strong> applies to the SMS + CTI plan. Unused minutes <strong>do not carry forward</strong> to the next month.</p>
+          <p style="margin-top:10px;font-weight:700;">If the limit is exceeded:</p>
+          <ul style="margin-top:5px;padding-left:20px;line-height:2;">
+            <li>Outgoing calls: <strong>1.5 credits per minute</strong></li>
+            <li>Incoming calls: <strong>1 credit per minute</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sf-alert info" style="margin-bottom:0;">
+        <div class="ai">&#128172;</div>
+        <div>
+          <h4>SMS Pricing</h4>
+          <p>All SMS pricing and commercial terms for Textolic remain the same as the standard <strong>360 SMS App for Salesforce</strong> rates. No separate SMS pricing applies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link Shortening BYOD Card -->
+  <div class="sf-card">
+    <div class="sf-ch">
+      <h3>&#128279; Link Shortening &mdash; Custom Domain (BYOD)</h3>
+      <span class="sub">Bring Your Own Domain</span>
+    </div>
+    <div class="sf-cb">
+      <div class="sf-alert success" style="margin-bottom:0;">
+        <div class="ai">&#128737;&#65039;</div>
+        <div>
+          <h4>Reduce SPAM Flag Rates with Your Own Domain</h4>
+          <p>Users can bring their own custom domain to shorten links included in messages. Using a known, trusted domain significantly reduces the risk of messages being flagged as SPAM by carriers and spam filters.</p>
+          <p style="margin-top:8px;">Generic shorteners such as <strong>TinyURL</strong> or <strong>Bitly</strong> are commonly blacklisted, which increases the likelihood of messages being marked as SPAM and reduces deliverability. With BYOD link shortening, the shortened URL reflects a domain your customers recognise &mdash; keeping message trust scores high.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ═══ A2P / 10DLC ═══ -->
