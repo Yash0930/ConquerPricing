@@ -161,8 +161,11 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
 
 /* CHANNEL GRID */
 .channel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:20px;}
-.ch-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--sf-shadow);transition:box-shadow .15s,transform .15s;}
+.ch-card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:var(--sf-radius-lg);padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--sf-shadow);transition:box-shadow .15s,transform .15s;position:relative;}
 .ch-card:hover{box-shadow:var(--sf-shadow-lg);transform:translateY(-1px);}
+.ch-card[onclick]{cursor:pointer;}
+.ch-card[onclick]::after{content:'View in table \2193';position:absolute;bottom:6px;right:10px;font-size:9px;font-weight:600;color:var(--sf-blue);opacity:0;transition:opacity .15s;}
+.ch-card[onclick]:hover::after{opacity:.85;}
 .ch-icon{font-size:28px;flex-shrink:0;}
 .ch-info .ch-name{font-size:14px;font-weight:700;color:var(--sf-navy);}
 .ch-info .ch-price{font-size:18px;font-weight:700;color:var(--sf-blue);margin-top:2px;}
@@ -637,29 +640,32 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
     <div><h4>Channel Add-ons</h4>
     <p>All channel pricing is <strong>per 200 users per year</strong>. These are add-on modules on top of the base SMS App license. The number of employees and channels scales to each customer.</p></div>
   </div>
+  <div class="tile-hint">&#128070; Click any channel below to jump to its row in the reference table.</div>
   <div class="channel-grid">
-    <div class="ch-card"><div class="ch-icon">&#128241;</div><div class="ch-info"><div class="ch-name">WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128242;</div><div class="ch-info"><div class="ch-name">Personal WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128077;</div><div class="ch-info"><div class="ch-name">Facebook</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128247;</div><div class="ch-info"><div class="ch-name">Instagram</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128101;</div><div class="ch-info"><div class="ch-name">LinkedIn</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#127911;</div><div class="ch-info"><div class="ch-name">Viber</div><div class="ch-price">$50,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128172;</div><div class="ch-info"><div class="ch-name">Line</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
-    <div class="ch-card"><div class="ch-icon">&#128483;</div><div class="ch-info"><div class="ch-name">KakaoTalk</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-whatsapp')"><div class="ch-icon">&#128241;</div><div class="ch-info"><div class="ch-name">WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-pwhatsapp')"><div class="ch-icon">&#128242;</div><div class="ch-info"><div class="ch-name">Personal WhatsApp</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-facebook')"><div class="ch-icon">&#128077;</div><div class="ch-info"><div class="ch-name">Facebook</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-instagram')"><div class="ch-icon">&#128247;</div><div class="ch-info"><div class="ch-name">Instagram</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-linkedin')"><div class="ch-icon">&#128101;</div><div class="ch-info"><div class="ch-name">LinkedIn</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-webchat')"><div class="ch-icon">&#128172;</div><div class="ch-info"><div class="ch-name">Webchat</div><div class="ch-price">$5,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-viber')"><div class="ch-icon">&#127911;</div><div class="ch-info"><div class="ch-name">Viber</div><div class="ch-price">$50,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-line')"><div class="ch-icon">&#128172;</div><div class="ch-info"><div class="ch-name">Line</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
+    <div class="ch-card" onclick="goToSummary('chn-kakao')"><div class="ch-icon">&#128483;</div><div class="ch-info"><div class="ch-name">KakaoTalk</div><div class="ch-price">$12,000</div><div class="ch-sub">per year / 200 users</div></div></div>
   </div>
   <div class="sf-card">
     <div class="sf-ch"><h3>&#127760; Channel Pricing Reference Table</h3><span class="sub">All rates in USD &middot; per 200 users / year</span></div>
     <table class="sf-tbl">
       <thead><tr><th>Channel</th><th>Annual Price</th><th>Users Included</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Business messaging via WhatsApp</td></tr>
-        <tr><td>Personal WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Personal WhatsApp integration</td></tr>
-        <tr><td>Facebook</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Facebook Messenger integration</td></tr>
-        <tr><td>Instagram</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Instagram DM integration</td></tr>
-        <tr><td>LinkedIn</td><td class="mono">$5,000 / year</td><td>200 users</td><td>LinkedIn messaging integration</td></tr>
-        <tr><td>Viber</td><td class="mono">$50,000 / year</td><td>200 users</td><td>Viber business messaging</td></tr>
-        <tr><td>Line</td><td class="mono">$12,000 / year</td><td>200 users</td><td>Line messaging integration</td></tr>
-        <tr><td>KakaoTalk</td><td class="mono">$12,000 / year</td><td>200 users</td><td>KakaoTalk messaging integration</td></tr>
+        <tr id="chn-whatsapp"><td>WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Business messaging via WhatsApp</td></tr>
+        <tr id="chn-pwhatsapp"><td>Personal WhatsApp</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Personal WhatsApp integration</td></tr>
+        <tr id="chn-facebook"><td>Facebook</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Facebook Messenger integration</td></tr>
+        <tr id="chn-instagram"><td>Instagram</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Instagram DM integration</td></tr>
+        <tr id="chn-linkedin"><td>LinkedIn</td><td class="mono">$5,000 / year</td><td>200 users</td><td>LinkedIn messaging integration</td></tr>
+        <tr id="chn-webchat"><td>Webchat</td><td class="mono">$5,000 / year</td><td>200 users</td><td>Integrate your website chat &mdash; all messages tracked in Salesforce as a Webchat channel</td></tr>
+        <tr id="chn-viber"><td>Viber</td><td class="mono">$50,000 / year</td><td>200 users</td><td>Viber business messaging</td></tr>
+        <tr id="chn-line"><td>Line</td><td class="mono">$12,000 / year</td><td>200 users</td><td>Line messaging integration</td></tr>
+        <tr id="chn-kakao"><td>KakaoTalk</td><td class="mono">$12,000 / year</td><td>200 users</td><td>KakaoTalk messaging integration</td></tr>
       </tbody>
     </table>
   </div>
@@ -780,6 +786,7 @@ main{padding:28px 40px 64px;max-width:1320px;margin:0 auto;}
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Facebook"> <span>&#128077; Facebook &mdash; $5,000/yr</span></label>
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Instagram"> <span>&#128247; Instagram &mdash; $5,000/yr</span></label>
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="LinkedIn"> <span>&#128101; LinkedIn &mdash; $5,000/yr</span></label>
+          <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="5000" data-name="Webchat"> <span>&#128172; Webchat &mdash; $5,000/yr</span></label>
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="50000" data-name="Viber"> <span>&#127911; Viber &mdash; $50,000/yr</span></label>
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="12000" data-name="Line"> <span>&#128172; Line &mdash; $12,000/yr</span></label>
           <label class="ch-cb" onclick="toggleChannel(this)"><input type="checkbox" value="12000" data-name="KakaoTalk"> <span>&#128483; KakaoTalk &mdash; $12,000/yr</span></label>
